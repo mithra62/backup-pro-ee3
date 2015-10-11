@@ -9,7 +9,7 @@ if(count($errors) >= 1)
 		
 		if( $key == 'no_storage_locations_setup' )
 		{
-		    echo ' <a href="'.$url_base.'new_storage&engine=local">Setup Storage Location</a>';
+		    echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/new_storage').'">Setup Storage Location</a>';
 		}
 		elseif( $key == 'license_number' )
 		{

@@ -51,7 +51,7 @@ class Backup_pro_lib
 			'db_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/db'),
 			'files_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/files'),
 			'cron_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/cron'),
-			'storage_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/storage'),
+			'storage_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/view_storage'),
 			'integrity_agent_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/integrity_agent'),
 			'license_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/license'),
 		);

@@ -56,9 +56,9 @@ trait BackupProStorageController
      * Add a storage entry
      * @return string
      */
-    public function new_storage()
+    public function new_storage($engine = 'local')
     {
-        $engine = ee()->input->get_post('engine');
+        //$engine = ee()->input->get_post('engine');
         $variables = array();
         $variables['available_storage_engines'] = $this->services['backup']->getStorage()->getAvailableStorageDrivers();
     

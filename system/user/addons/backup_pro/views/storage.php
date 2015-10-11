@@ -1,5 +1,4 @@
 <?php $this->load->view('_includes/_errors'); ?>
-<?php $this->load->view('storage/_submenu')?>
 <?php 
 
 $tmpl = array (
@@ -45,4 +44,3 @@ $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_
 <?php else: ?>
 	<div class="no_backup_found"><?php echo $view_helper->m62Lang('no_storage_locations_created_yet')?></div>
 <?php endif; ?>
-<?php echo form_close()?>
