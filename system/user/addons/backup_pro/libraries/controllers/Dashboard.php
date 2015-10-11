@@ -61,13 +61,12 @@ trait BackupProDashboardController
             'menu_data' => ee()->backup_pro->get_dashboard_view_menu(),
             'method' => ee()->input->get_post('method')
         );
-    
         
         return array(
             'body' => ee()->load->view('dashboard', $variables, true),
             'heading' => $this->services['lang']->__('dashboard'),
             'breadcrumb' => array(
-                ee('CP/URL', 'addons/settings/fortune_cookie')->compile() => lang('backup_pro_module_name')
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name')
             )
         );
     }
@@ -93,9 +92,15 @@ trait BackupProDashboardController
         ee()->view->cp_page_title = ee()->lang->line('database_backups');
         ee()->jquery->tablesorter('#database_backups table', '{headers: {8: {sorter: false}, 0: {sorter: false}, 1: {sorter: false}, 2: {sorter: false}, 3: {sorter: false}}, widgets: ["zebra"], sortList: [[4,1]]}');
         ee()->javascript->compile();
-    
-        ee()->view->cp_page_title = $this->services['lang']->__('database_backups');
-        return ee()->load->view('database_backups', $variables, true);
+        
+        return array(
+            'body' => ee()->load->view('database_backups', $variables, true),
+            'heading' => $this->services['lang']->__('database_backups'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/index')->compile() => lang('home_bp_dashboard_menu')
+            )
+        );
     }
     
     /**
@@ -119,8 +124,14 @@ trait BackupProDashboardController
 
         ee()->jquery->tablesorter('#file_backups table', '{headers: {8: {sorter: false}, 0: {sorter: false}, 1: {sorter: false}, 2: {sorter: false}, 3: {sorter: false}}, widgets: ["zebra"], sortList: [[4,1]]}');
         ee()->javascript->compile();
-    
-        ee()->view->cp_page_title = $this->services['lang']->__('file_backups');
-        return ee()->load->view('file_backups', $variables, true);
+        
+        return array(
+            'body' => ee()->load->view('file_backups', $variables, true),
+            'heading' => $this->services['lang']->__('file_backups'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/index')->compile() => lang('home_bp_dashboard_menu')
+            )
+        );
     }
 }
