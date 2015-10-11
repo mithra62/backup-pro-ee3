@@ -1,43 +1,80 @@
-<h3  class="accordion"><?=$view_helper->m62Lang('config_db')?></h3>
+<h2><?=$view_helper->m62Lang('config_db')?></h2>
+<?php 
+$db_backup_methods = array('php' => 'PHP', 'mysqldump' => 'MySQLDUMP');
+$db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
+?>
 <input type="hidden" name="db_backup_ignore_tables[]" value="" />
 <input type="hidden" name="db_backup_ignore_table_data[]" value="" />
+
+<fieldset class="col-group required">
+	<div class="setting-txt col w-8">
+		<h3><label for="max_db_backups"><?php echo $view_helper->m62Lang('max_db_backups'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('max_db_backups_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('max_db_backups', $form_data['max_db_backups'], 'id="max_db_backups"'); ?>
+		<?php echo m62_form_errors($form_errors['max_db_backups']); ?>
+	</div>
+</fieldset>
+
+<fieldset class="col-group required">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_alert_threshold"><?php echo $view_helper->m62Lang('db_backup_alert_threshold'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_alert_threshold_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('db_backup_alert_threshold', $form_data['db_backup_alert_threshold'], 'id="db_backup_alert_threshold"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_alert_threshold']); ?>
+	</div>
+</fieldset>
+
+<fieldset class="col-group required">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_method"><?php echo $view_helper->m62Lang('db_backup_method'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_method_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 last">
+		<?php echo form_dropdown('db_backup_method', $db_backup_methods, $form_data['db_backup_method'], 'id="db_backup_method"' ); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_method']); ?>
+	</div>
+</fieldset>	
+
+<fieldset class="col-group required" id="mysqldump_command_wrap" style="display:none;">
+	<div class="setting-txt col w-8">
+		<h3><label for="mysqldump_command"><?php echo $view_helper->m62Lang('mysqldump_command'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('mysqldump_command_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_input('mysqldump_command', $form_data['mysqldump_command'], 'id="mysqldump_command"'); ?>
+		<?php echo m62_form_errors($form_errors['mysqldump_command']); ?>
+	</div>
+</fieldset>	
+
+<fieldset class="col-group required">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_restore_method"><?php echo $view_helper->m62Lang('db_restore_method'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_restore_method_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 last">
+		<?php echo form_dropdown('db_restore_method', $db_restore_methods, $form_data['db_restore_method'], 'id="db_restore_method"' ); ?>
+		<?php echo m62_form_errors($form_errors['db_restore_method']); ?>
+	</div>
+</fieldset>	
+
+<fieldset class="col-group required" id="mysqlcli_command_wrap" style="display:none;">
+	<div class="setting-txt col w-8">
+		<h3><label for="mysqlcli_command"><?php echo $view_helper->m62Lang('mysqlcli_command'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('mysqlcli_command_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_input('mysqlcli_command', $form_data['mysqlcli_command'], 'id="mysqlcli_command"'); ?>
+		<?php echo m62_form_errors($form_errors['mysqlcli_command']); ?>
+	</div>
+</fieldset>	
+
 <div>
-	<?php 
-	$db_backup_methods = array('php' => 'PHP', 'mysqldump' => 'MySQLDUMP');
-	$db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	
-	$this->table->set_heading($view_helper->m62Lang('setting'),$view_helper->m62Lang('value'));
-	$this->table->add_row(
-	    '<label for="max_db_backups">'.$view_helper->m62Lang('max_db_backups').' </label><div class="subtext">'.$view_helper->m62Lang('max_db_backups_instructions').'</div>', 
-	    form_input('max_db_backups', $form_data['max_db_backups'], 'id="max_db_backups"').m62_form_errors($form_errors['max_db_backups'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_backup_alert_threshold">'.$view_helper->m62Lang('db_backup_alert_threshold').' </label><div class="subtext">'.$view_helper->m62Lang('db_backup_alert_threshold_instructions').'</div>', 
-	    form_input('db_backup_alert_threshold', $form_data['db_backup_alert_threshold'], 'id="db_backup_alert_threshold"').m62_form_errors($form_errors['db_backup_alert_threshold'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_backup_method">'.$view_helper->m62Lang('db_backup_method').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_method_instructions').'</div>', 
-	    form_dropdown('db_backup_method', $db_backup_methods, $form_data['db_backup_method'], 'id="db_backup_method"').
-	       '<span id="mysqldump_command_wrap" style="display:none;">'.form_input('mysqldump_command', $form_data['mysqldump_command'], 'id="mysqldump_command" style="width:60%; margin-left:10px;"').'</span>'
-	       .m62_form_errors($form_errors['db_backup_method'])
-	       .m62_form_errors($form_errors['mysqldump_command'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_restore_method">'.$view_helper->m62Lang('db_restore_method').'</label><div class="subtext">'.$view_helper->m62Lang('db_restore_method_instructions').'</div>', 
-	    form_dropdown('db_restore_method', $db_restore_methods, $form_data['db_restore_method'], 'id="db_restore_method"').
-	       '<span id="mysqlcli_command_wrap" style="display:none;">'.form_input('mysqlcli_command', $form_data['mysqlcli_command'], 'id="mysqlcli_command" style="width:60%; margin-left:10px;"').'</span>'
-	       .m62_form_errors($form_errors['db_restore_method'])
-	       .m62_form_errors($form_errors['mysqlcli_command'])
-	);
-	
-	echo $this->table->generate();
-	$this->table->clear();	
-	?>
-	
-	<h3  class="accordion"><?=$view_helper->m62Lang('config_ignore_sql')?></h3>
+	<h2  class="accordion"><?=$view_helper->m62Lang('config_ignore_sql')?></h2>
 	<?php 
 
 	$this->table->set_heading($view_helper->m62Lang('setting'),$view_helper->m62Lang('value'));

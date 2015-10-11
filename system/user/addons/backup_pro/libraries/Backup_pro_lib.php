@@ -47,7 +47,7 @@ class Backup_pro_lib
 	public function get_settings_view_menu()
 	{
 		$menu = array(
-			'general_bp_settings_menu'   => ee('CP/URL', 'addons/settings/backup_pro/settings/index'),
+			'general_bp_settings_menu'   => ee('CP/URL', 'addons/settings/backup_pro/settings/general'),
 			'db_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/db'),
 			'files_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/files'),
 			'cron_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/cron'),

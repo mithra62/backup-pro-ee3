@@ -1,7 +1,5 @@
 <?php $this->load->view('_includes/_errors'); ?>
-<br clear="all" />
-<?php 
-echo $view_helper->m62Lang('module_instructions'); ?>
+<br clear="all" /><?=ee('CP/Alert')->get('fortune-cookie-form')?>
 
 <div class="clear_left shun"></div>
 <div>

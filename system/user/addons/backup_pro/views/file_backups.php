@@ -1,7 +1,5 @@
 <?php $this->load->view('_includes/_errors'); ?>
 <br clear="all" />
-<?php 
-echo $view_helper->m62Lang('module_instructions'); ?>
 <div class="clear_left shun"></div>
 <div>
 <?php 

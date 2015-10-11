@@ -21,7 +21,7 @@ trait BackupProSettingsController
     /**
      * The Settings Control Panel page
      */
-    public function settings($section)
+    public function settings($section = 'index')
     {
         //$section = ( ee()->input->get_post('section') != '' ? ee()->input->get_post('section') : 'general' );
         $variables = array('form_data' => $this->settings, 'form_errors' => $this->returnEmpty($this->settings));
@@ -69,8 +69,13 @@ trait BackupProSettingsController
         $variables['threshold_options'] = $this->services['settings']->getAutoPruneThresholdOptions();
         $variables['available_db_backup_engines'] = $this->services['backup']->getDataBase()->getAvailableEnginesOptions();
         $variables['menu_data'] = ee()->backup_pro->get_settings_view_menu();
-    
-        ee()->view->cp_page_title = $this->services['lang']->__($variables['section'].'_bp_settings_menu');
-        return ee()->load->view('settings', $variables, true);
+        return array(
+            'body' => ee()->load->view('settings', $variables, true),
+            'heading' => $this->services['lang']->__($variables['section'].'_bp_settings_menu'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('settings'),
+            )
+        );
     }
 }

@@ -1,27 +1,6 @@
-<?php $this->load->view('_includes/_errors'); 
+<?php $this->load->view('_includes/_errors'); ?>
 
-$tmpl = array (
-	'table_open'          => '<table class="mainTable" border="0" cellspacing="0" cellpadding="0">',
-
-	'row_start'           => '<tr class="even">',
-	'row_end'             => '</tr>',
-	'cell_start'          => '<td style="width:50%;">',
-	'cell_end'            => '</td>',
-
-	'row_alt_start'       => '<tr class="odd">',
-	'row_alt_end'         => '</tr>',
-	'cell_alt_start'      => '<td>',
-	'cell_alt_end'        => '</td>',
-
-	'table_close'         => '</table>'
-);
-
-$this->table->set_template($tmpl); 
-$this->table->set_empty("&nbsp;");
-?>
-<div class="clear_left shun"></div>
-
-<?php echo form_open($query_base.'settings', array('id'=>'my_accordion'))?>
+<?php echo form_open('', array('id'=>'bp3_settings_form', 'class' => 'settings'))?>
 <input type="hidden" value="yes" name="go_settings" />
 <input type="hidden" value="<?php echo $section; ?>" name="section" />
 <?php 
@@ -47,13 +26,3 @@ switch($section)
 	</div>
 </div>	
 <?php echo form_close()?>
-
-<style>
-
-#mainContent .pageContents {
-    overflow: visible !important;
-}
-.group::after {
-    visibility: visible !important;
-}
-</style>
