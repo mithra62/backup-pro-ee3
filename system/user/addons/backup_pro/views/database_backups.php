@@ -39,7 +39,7 @@ if(count($backups['database']) > 0):
 
 	?>
 	<?php else: ?>
-		<div class="no_backup_found"><?php echo $view_helper->m62Lang('no_database_backups')?> <a href="<?php echo $nav_links['backup_db']; ?>"><?php echo $view_helper->m62Lang('would_you_like_to_backup_now')?></a></div>
+		<div class="no_backup_found"><?php echo $view_helper->m62Lang('no_database_backups')?> <a href="<?php echo $nav_links['nav_backup_db']; ?>"><?php echo $view_helper->m62Lang('would_you_like_to_backup_now')?></a></div>
 	<?php endif; ?>
 </div>
 
