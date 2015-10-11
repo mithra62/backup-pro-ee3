@@ -1,5 +1,4 @@
 <?php $this->load->view('_includes/_errors'); ?>
-<?php $this->load->view('_includes/_backups_submenu'); ?>
 <br clear="all" />
 <?php 
 echo $view_helper->m62Lang('module_instructions'); ?>

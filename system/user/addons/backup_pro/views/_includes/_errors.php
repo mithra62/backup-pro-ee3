@@ -13,11 +13,11 @@ if(count($errors) >= 1)
 		}
 		elseif( $key == 'license_number' )
 		{
-		    echo ' <a href="'.$url_base.'settings&section=license">Enter License</a> or <a href="https://mithra62.com/projects/view/backup-pro">Purchase a License</a>';
+		    echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/license').'">Enter License</a> or <a href="https://mithra62.com/projects/view/backup-pro">Purchase a License</a>';
 		}
 	    elseif( $error == 'invalid_working_directory' )
 	    {
-	        echo ' <a href="'.$url_base.'settings">Check Working Directory</a>';
+	        echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/index').'">Check Working Directory</a>';
 	    }
 		else 
 		{

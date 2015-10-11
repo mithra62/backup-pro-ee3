@@ -1,8 +1,4 @@
-<?php $this->load->view('_includes/_errors'); ?>
-<?php $this->load->view('settings/_settings_nav'); ?>
-
-
-<?php 
+<?php $this->load->view('_includes/_errors'); 
 
 $tmpl = array (
 	'table_open'          => '<table class="mainTable" border="0" cellspacing="0" cellpadding="0">',
