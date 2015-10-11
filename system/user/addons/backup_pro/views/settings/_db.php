@@ -72,61 +72,75 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
-<div>
-	
-	<h2  class="accordion"><?=$view_helper->m62Lang('config_ignore_sql')?></h2>
-	<?php 
+<h2><?=$view_helper->m62Lang('config_ignore_sql')?></h2>
 
-	$this->table->set_heading($view_helper->m62Lang('setting'),$view_helper->m62Lang('value'));
-	$this->table->add_row(
-	    '<label for="db_backup_ignore_tables">'.$view_helper->m62Lang('db_backup_ignore_tables').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_ignore_tables_instructions').'</div>', 
-	    form_multiselect('db_backup_ignore_tables[]', $db_tables, $form_data['db_backup_ignore_tables'], 'id="db_backup_ignore_tables" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_tables').'"')
-	    .m62_form_errors($form_errors['db_backup_ignore_tables'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_backup_ignore_table_data">'.$view_helper->m62Lang('db_backup_ignore_table_data').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_ignore_table_data_instructions').'</div>', 
-	    form_multiselect('db_backup_ignore_table_data[]', $db_tables, $form_data['db_backup_ignore_table_data'], 'id="db_backup_ignore_table_data" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_table_data').'"')
-	    .m62_form_errors($form_errors['db_backup_ignore_table_data'])
-	);
-	
-	echo $this->table->generate();
-	$this->table->clear();	
-	?>
+<fieldset class="col-group">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_ignore_tables"><?php echo $view_helper->m62Lang('db_backup_ignore_tables'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_ignore_tables_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_multiselect('db_backup_ignore_tables[]', $db_tables, $form_data['db_backup_ignore_tables'], 'id="db_backup_ignore_tables" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_tables').'"') ?>
+		<?php echo m62_form_errors($form_errors['db_backup_ignore_tables']); ?>
+	</div>
+</fieldset>	
+
+
+<fieldset class="col-group">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_ignore_table_data'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_ignore_table_data_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_multiselect('db_backup_ignore_table_data[]', $db_tables, $form_data['db_backup_ignore_table_data'], 'id="db_backup_ignore_table_data" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_table_data').'"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_ignore_table_data']); ?>
+	</div>
+</fieldset>	
+
 		
-	<h3  class="accordion"><?=$view_helper->m62Lang('config_extra_archive_sql')?></h3>
-	<?php 
+<h2><?=$view_helper->m62Lang('config_extra_archive_sql')?></h2>
+<fieldset class="col-group">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_archive_pre_sql"><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_textarea('db_backup_archive_pre_sql', $form_data['db_backup_archive_pre_sql'], 'cols="90" rows="6" id="db_backup_archive_pre_sql"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_archive_pre_sql']); ?>
+	</div>
+</fieldset>	
 
-	$this->table->set_heading($view_helper->m62Lang('setting'),$view_helper->m62Lang('value'));
-	$this->table->add_row(
-	    '<label for="db_backup_archive_pre_sql">'.$view_helper->m62Lang('db_backup_archive_pre_sql').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_archive_pre_sql_instructions').'</div>', 
-	    form_textarea('db_backup_archive_pre_sql', $form_data['db_backup_archive_pre_sql'], 'cols="90" rows="6" id="db_backup_archive_pre_sql"').m62_form_errors($form_errors['max_file_backups'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_backup_archive_post_sql">'.$view_helper->m62Lang('db_backup_archive_post_sql').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_archive_post_sql_instructions').'</div>', 
-	    form_textarea('db_backup_archive_post_sql', $form_data['db_backup_archive_post_sql'], 'cols="90" rows="6" id="db_backup_archive_post_sql"').m62_form_errors($form_errors['db_backup_archive_post_sql'])
-	);
-	
-	echo $this->table->generate();
-	$this->table->clear();	
-	?>
-	
-	<h3  class="accordion"><?=$view_helper->m62Lang('config_execute_sql')?></h3>
-	<?php 
+<fieldset class="col-group ">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_archive_post_sql_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_textarea('db_backup_archive_post_sql', $form_data['db_backup_archive_post_sql'], 'cols="90" rows="6" id="db_backup_archive_post_sql"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_archive_post_sql']); ?>
+	</div>
+</fieldset>	
 
-	$this->table->set_heading($view_helper->m62Lang('setting'),$view_helper->m62Lang('value'));
-	$this->table->add_row(
-	    '<label for="db_backup_execute_pre_sql">'.$view_helper->m62Lang('db_backup_execute_pre_sql').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_execute_pre_sql_instructions').'</div>', 
-	    form_textarea('db_backup_execute_pre_sql', $form_data['db_backup_execute_pre_sql'], 'cols="90" rows="6" id="db_backup_execute_pre_sql"').m62_form_errors($form_errors['db_backup_execute_pre_sql'])
-	);
-	
-	$this->table->add_row(
-	    '<label for="db_backup_execute_post_sql">'.$view_helper->m62Lang('db_backup_execute_post_sql').'</label><div class="subtext">'.$view_helper->m62Lang('db_backup_execute_post_sql_instructions').'</div>', 
-	    form_textarea('db_backup_execute_post_sql', $form_data['db_backup_execute_post_sql'], 'cols="90" rows="6" id="db_backup_execute_post_sql"').m62_form_errors($form_errors['db_backup_execute_post_sql'])
-	);
-	
-	echo $this->table->generate();
-	$this->table->clear();	
-	?>
-</div>
+<h2><?=$view_helper->m62Lang('config_execute_sql')?></h2>
+
+<fieldset class="col-group ">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_execute_pre_sql"><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_textarea('db_backup_execute_pre_sql', $form_data['db_backup_execute_pre_sql'], 'cols="90" rows="6" id="db_backup_execute_pre_sql"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_execute_pre_sql']); ?>
+	</div>
+</fieldset>
+
+<fieldset class="col-group ">
+	<div class="setting-txt col w-8">
+		<h3><label for="db_backup_execute_post_sql"><?php echo $view_helper->m62Lang('db_backup_execute_post_sql'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('db_backup_execute_post_sql_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8 ">
+		<?php echo form_textarea('db_backup_execute_post_sql', $form_data['db_backup_execute_post_sql'], 'cols="90" rows="6" id="db_backup_execute_post_sql"'); ?>
+		<?php echo m62_form_errors($form_errors['db_backup_execute_post_sql']); ?>
+	</div>
+</fieldset>
