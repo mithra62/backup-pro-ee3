@@ -15,7 +15,7 @@ use mithra62\BackupPro\BackupPro;
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-include PATH_THIRD.'backup_pro/config'.EXT;
+include PATH_THIRD.'backup_pro/config.php';
 
 /**
  * Backup Pro - Extension
@@ -81,7 +81,7 @@ class Backup_pro_ext extends Eecms implements BackupPro
 	    }
 	    
 		$path = dirname(realpath(__FILE__));
-		include $path.'/config'.EXT;
+		include $path.'/config.php';
 		$this->docs_url = $config['docs_url'];
 		$this->class = $this->name = $config['class_name'];
 		$this->settings_table = $config['settings_table'];

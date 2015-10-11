@@ -62,8 +62,14 @@ trait BackupProDashboardController
             'method' => ee()->input->get_post('method')
         );
     
-        ee()->view->cp_page_title = $this->services['lang']->__('dashboard');
-        return ee()->load->view('dashboard', $variables, true);
+        
+        return array(
+            'body' => ee()->load->view('dashboard', $variables, true),
+            'heading' => $this->services['lang']->__('dashboard'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/fortune_cookie')->compile() => lang('backup_pro_module_name')
+            )
+        );
     }
     
     /**

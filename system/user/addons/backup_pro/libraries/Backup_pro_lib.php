@@ -10,7 +10,7 @@
  */
 
  /**
- * Backup Pro - EE Base Library
+ * Backup Pro - EE3 Base Library
  *
  * Base Library class
  *
@@ -24,25 +24,16 @@ class Backup_pro_lib
 	 * Sets up the right menu options
 	 * @return multitype:string
 	 */
-	public function get_right_menu(array $settings)
+	public function get_backup_menu()
 	{
 	   $menu = array(
-			'dashboard'		=> $this->url_base.'index',
-		    'backup_db'		=> $this->url_base.'backup&type=database',
-		    'backup_files'	=> $this->url_base.'backup&type=file'
+		    'nav_backup_db'		=> ee('CP/URL', 'addons/settings/backup_pro/backup/database'),
+		    'nav_backup_files'	=> ee('CP/URL', 'addons/settings/backup_pro/backup/files')
 		);
-		
-		if(ee()->session->userdata('group_id') == '1' || (isset($this->settings['allowed_access_levels']) && is_array($this->settings['allowed_access_levels'])))
-		{
-			if(ee()->session->userdata('group_id') == '1' || in_array(ee()->session->userdata('group_id'), $this->settings['allowed_access_levels']))
-			{
-				$menu['settings'] = $this->url_base.'settings'.AMP.'section=general';
-			}
-		}
 	
-		if (ee()->extensions->active_hook('backup_pro_modify_right_menu') === TRUE)
+		if (ee()->extensions->active_hook('backup_pro_modify_backup_menu') === TRUE)
 		{
-			$menu = ee()->extensions->call('backup_pro_modify_right_menu', $menu);
+			$menu = ee()->extensions->call('backup_pro_modify_backup_menu', $menu);
 			if (ee()->extensions->end_script === TRUE) return $menu;
 		}
 		
@@ -56,13 +47,13 @@ class Backup_pro_lib
 	public function get_settings_view_menu()
 	{
 		$menu = array(
-			'general' => array('url' => 'general', 'target' => '', 'div_class' => ''),
-			'db' => array('url' => 'db', 'target' => '', 'div_class' => ''),
-			'files' => array('url' => 'files', 'target' => '_self', 'div_class' => ''),
-			'cron' => array('url' => 'cron', 'target' => '', 'div_class' => ''),
-			'storage' => array('url' => 'storage', 'target' => '', 'div_class' => ''),
-			'integrity_agent' => array('url' => 'integrity_agent', 'target' => '', 'div_class' => ''),
-			'license' => array('url' => 'license', 'target' => '', 'div_class' => ''),
+			'general_bp_settings_menu'   => ee('CP/URL', 'addons/settings/backup_pro/settings/index'),
+			'db_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/db'),
+			'files_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/files'),
+			'cron_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/cron'),
+			'storage_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/storage'),
+			'integrity_agent_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/integrity_agent'),
+			'license_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/license'),
 		);
 	
 		if (ee()->extensions->active_hook('backup_pro_modify_settings_menu') === TRUE)
@@ -81,9 +72,9 @@ class Backup_pro_lib
 	public function get_dashboard_view_menu()
 	{
 		$menu = array(
-			'home' => array('url' => 'index', 'target' => '', 'div_class' => ''),
-			'db' => array('url' => 'db_backups', 'target' => '', 'div_class' => ''),
-			'files' => array('url' => 'file_backups', 'target' => '_self', 'div_class' => '')
+			'home_bp_dashboard_menu'   => ee('CP/URL', 'addons/settings/backup_pro'),
+			'db_bp_dashboard_menu'   => ee('CP/URL', 'addons/settings/backup_pro/db_backups'),
+			'files_bp_dashboard_menu'   => ee('CP/URL', 'addons/settings/backup_pro/file_backups'),
 		);
 	
 		if (ee()->extensions->active_hook('backup_pro_modify_settings_menu') === TRUE)

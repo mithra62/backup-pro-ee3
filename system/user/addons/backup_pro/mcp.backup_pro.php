@@ -10,18 +10,18 @@
  */
 
 require_once PATH_THIRD.'backup_pro/vendor/autoload.php';
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Settings'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Dashboard'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Manage'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Storage'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Restore'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Backup'.EXT;
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Settings.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Dashboard.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Manage.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Storage.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Restore.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Backup.php';
 
-use mithra62\BackupPro\Platforms\Controllers\Eecms;
+use mithra62\BackupPro\Platforms\Controllers\Ee3;
 
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-include PATH_THIRD.'backup_pro/config'.EXT;
+include PATH_THIRD.'backup_pro/config.php';
 
 /**
  * Backup Pro - CP
@@ -32,7 +32,7 @@ include PATH_THIRD.'backup_pro/config'.EXT;
  * @author		Eric Lamb <eric@mithra62.com>
  * @filesource 	./system/expressionengine/third_party/backup_pro/mcp.backup_pro.php
  */
-class Backup_pro_mcp extends Eecms
+class Backup_pro_mcp extends Ee3
 {   
     use BackupProSettingsController, 
         BackupProDashboardController, 
@@ -97,7 +97,7 @@ class Backup_pro_mcp extends Eecms
 		$this->url_base = BASE.AMP.$this->query_base;
 		ee()->backup_pro->set_url_base($this->url_base);
 
-		$nav_links = ee()->backup_pro->get_right_menu($this->settings);
+		$nav_links = ee()->backup_pro->get_backup_menu($this->settings);
 		ee()->load->vars(
 		    array(
 		        'url_base' => $this->url_base,
@@ -124,6 +124,33 @@ class Backup_pro_mcp extends Eecms
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/backup.js"></script>');
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/settings.js"></script>');
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/eecms/backup_pro.js"></script>');
+		
+
+		$sidebar = ee('CP/Sidebar')->make();
+		$manage = $sidebar->addHeader($this->services['lang']->__('manage_backups'));
+		$manage_list = $manage->addBasicList();
+		$menu = ee()->backup_pro->get_dashboard_view_menu();
+		foreach($menu AS $key => $value)
+		{
+		    $manage_list->addItem($this->services['lang']->__($key), $value);
+		}
+		
+		$take_backup = $sidebar->addHeader($this->services['lang']->__('backup'));
+		$take_backup_list = $take_backup->addBasicList();
+		$menu = ee()->backup_pro->get_backup_menu();
+		foreach($menu AS $key => $value)
+		{
+		    $take_backup_list->addItem($this->services['lang']->__($key), $value);
+		}
+		
+		$settings = $sidebar->addHeader($this->services['lang']->__('nav_backup_pro_settings'));
+		$settings_list = $settings->addBasicList();
+		$menu = ee()->backup_pro->get_settings_view_menu();
+		foreach($menu AS $key => $value)
+		{
+		    $settings_list->addItem($this->services['lang']->__($key), $value);
+		}		
+		
 	}
 	
 	private function add_breadcrumb($link, $title)

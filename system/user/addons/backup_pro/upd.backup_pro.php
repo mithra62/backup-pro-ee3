@@ -56,7 +56,7 @@ class Backup_pro_upd implements BackupPro
     public function __construct() 
     { 
     	$path = dirname(realpath(__FILE__));
-    	include $path.'/config'.EXT;
+    	include $path.'/config.php';
     	$this->class = $config['class_name'];
     	$this->settings_table = $config['settings_table'];
     	$this->ext_class_name = $config['ext_class_name'];

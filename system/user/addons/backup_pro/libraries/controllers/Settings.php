@@ -21,9 +21,9 @@ trait BackupProSettingsController
     /**
      * The Settings Control Panel page
      */
-    public function settings()
+    public function settings($section)
     {
-        $section = ( ee()->input->get_post('section') != '' ? ee()->input->get_post('section') : 'general' );
+        //$section = ( ee()->input->get_post('section') != '' ? ee()->input->get_post('section') : 'general' );
         $variables = array('form_data' => $this->settings, 'form_errors' => $this->returnEmpty($this->settings));
         $variables['form_data']['cron_notify_emails'] = implode("\n", $this->settings['cron_notify_emails']);
         $variables['form_data']['exclude_paths'] = implode("\n", $this->settings['exclude_paths']);

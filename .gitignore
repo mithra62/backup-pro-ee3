@@ -1,8 +1,8 @@
 /.project
 /.settings
 /.buildpath
-/system/expressionengine/third_party/backup_pro/vendor
-/system/expressionengine/third_party/backup_pro/mithra62
-/themes/third_party/backup_pro/images
-/themes/third_party/backup_pro/js
-/themes/third_party/backup_pro/css
+/system/user/addons/backup_pro/vendor
+/system/user/addons/backup_pro/mithra62
+/themes/user/backup_pro/images
+/themes/user/backup_pro/js
+/themes/user/backup_pro/css
