@@ -174,12 +174,12 @@ if( !function_exists('m62_form_errors'))
         $return = '';
         if( is_array($errors) && count($errors) >= 1)
         {
-            $return = '<ul style="padding-top:5px;">';
+            $return = '<em>';
             foreach($errors AS $error)
             {
-                $return .= '<li class="notice">'.$error.'</li>';
+                $return .= $error.'<br />';
             }
-            $return .= '</ul>';
+            $return .= '</em>';
         }
         
         return $return;
