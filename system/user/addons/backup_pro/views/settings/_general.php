@@ -2,7 +2,7 @@
 <input type="hidden" value="0" name="relative_time" />
 <input type="hidden" value="0" name="allow_duplicates" />
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['working_directory'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="working_directory"><?php echo $view_helper->m62Lang('working_directory'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('working_directory_instructions'); ?></em>
@@ -13,7 +13,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['cron_query_key'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_query_key"><?php echo $view_helper->m62Lang('cron_query_key'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_query_key_instructions'); ?></em>
@@ -24,7 +24,7 @@
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['dashboard_recent_total'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="dashboard_recent_total"><?php echo $view_helper->m62Lang('dashboard_recent_total'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('dashboard_recent_total_instructions'); ?></em>
@@ -35,7 +35,7 @@
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['auto_threshold'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="auto_threshold"><?php echo $view_helper->m62Lang('auto_threshold'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('auto_threshold_instructions'); ?></em>
@@ -46,7 +46,7 @@
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required" id="auto_threshold_custom_wrap" style="display:none;">
+<fieldset class="col-group required <?php echo ($form_errors['auto_threshold_custom'] ? 'invalid' : ''); ?>" id="auto_threshold_custom_wrap" style="display:none;">
 	<div class="setting-txt col w-8">
 		<h3><label for="auto_threshold_custom"><?php echo $view_helper->m62Lang('auto_threshold_custom'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('auto_threshold_custom_instructions'); ?></em>
@@ -57,7 +57,7 @@
 	</div>
 </fieldset>	
 
-<fieldset class="col-group">
+<fieldset class="col-group <?php echo ($form_errors['allow_duplicates'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="allow_duplicates"><?php echo $view_helper->m62Lang('allow_duplicates'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('allow_duplicates_instructions'); ?></em>
@@ -68,7 +68,7 @@
 	</div>
 </fieldset>		
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['date_format'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="date_format"><?php echo $view_helper->m62Lang('date_format'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('date_format_instructions'); ?></em>
@@ -79,7 +79,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group">
+<fieldset class="col-group <?php echo ($form_errors['relative_time'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="relative_time"><?php echo $view_helper->m62Lang('relative_time'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('relative_time_instructions'); ?></em>

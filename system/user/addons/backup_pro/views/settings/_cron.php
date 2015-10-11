@@ -23,7 +23,7 @@
 	
 <h2><?=$view_helper->m62Lang('configure_cron_notification')?></h2>
 
-<fieldset class="col-group ">
+<fieldset class="col-group <?php echo ($form_errors['cron_notify_emails'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_notify_emails"><?php echo $view_helper->m62Lang('cron_notify_emails'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_notify_emails_instructions'); ?></em>
@@ -34,7 +34,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['cron_notify_email_mailtype'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_notify_email_mailtype"><?php echo $view_helper->m62Lang('cron_notify_email_mailtype'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_notify_email_mailtype_instructions'); ?></em>
@@ -45,7 +45,7 @@
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['cron_notify_email_subject'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_notify_email_subject"><?php echo $view_helper->m62Lang('cron_notify_email_subject'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_notify_email_subject_instructions'); ?></em>
@@ -56,7 +56,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group ">
+<fieldset class="col-group <?php echo ($form_errors['cron_notify_email_message'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_notify_email_message"><?php echo $view_helper->m62Lang('cron_notify_email_message'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_notify_email_message_instructions'); ?></em>

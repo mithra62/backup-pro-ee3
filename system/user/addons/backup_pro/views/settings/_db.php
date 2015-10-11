@@ -6,7 +6,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 <input type="hidden" name="db_backup_ignore_tables[]" value="" />
 <input type="hidden" name="db_backup_ignore_table_data[]" value="" />
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['max_db_backups'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="max_db_backups"><?php echo $view_helper->m62Lang('max_db_backups'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('max_db_backups_instructions'); ?></em>
@@ -17,7 +17,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['db_backup_alert_threshold'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_alert_threshold"><?php echo $view_helper->m62Lang('db_backup_alert_threshold'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_alert_threshold_instructions'); ?></em>
@@ -28,7 +28,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['db_backup_method'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_method"><?php echo $view_helper->m62Lang('db_backup_method'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_method_instructions'); ?></em>
@@ -39,7 +39,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required" id="mysqldump_command_wrap" style="display:none;">
+<fieldset class="col-group required <?php echo ($form_errors['mysqldump_command'] ? 'invalid' : ''); ?>" id="mysqldump_command_wrap" style="display:none;">
 	<div class="setting-txt col w-8">
 		<h3><label for="mysqldump_command"><?php echo $view_helper->m62Lang('mysqldump_command'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('mysqldump_command_instructions'); ?></em>
@@ -50,7 +50,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required">
+<fieldset class="col-group required <?php echo ($form_errors['db_restore_method'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_restore_method"><?php echo $view_helper->m62Lang('db_restore_method'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_restore_method_instructions'); ?></em>
@@ -61,7 +61,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
-<fieldset class="col-group required" id="mysqlcli_command_wrap" style="display:none;">
+<fieldset class="col-group required <?php echo ($form_errors['mysqlcli_command'] ? 'invalid' : ''); ?>" id="mysqlcli_command_wrap" style="display:none;">
 	<div class="setting-txt col w-8">
 		<h3><label for="mysqlcli_command"><?php echo $view_helper->m62Lang('mysqlcli_command'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('mysqlcli_command_instructions'); ?></em>
@@ -74,7 +74,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <h2><?=$view_helper->m62Lang('config_ignore_sql')?></h2>
 
-<fieldset class="col-group">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_ignore_tables'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_ignore_tables"><?php echo $view_helper->m62Lang('db_backup_ignore_tables'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_ignore_tables_instructions'); ?></em>
@@ -86,7 +86,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 </fieldset>	
 
 
-<fieldset class="col-group">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_ignore_table_data'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_ignore_table_data'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_ignore_table_data_instructions'); ?></em>
@@ -99,7 +99,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 		
 <h2><?=$view_helper->m62Lang('config_extra_archive_sql')?></h2>
-<fieldset class="col-group">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_archive_pre_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_archive_pre_sql"><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql_instructions'); ?></em>
@@ -110,7 +110,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
-<fieldset class="col-group ">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_archive_post_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_archive_post_sql_instructions'); ?></em>
@@ -123,7 +123,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <h2><?=$view_helper->m62Lang('config_execute_sql')?></h2>
 
-<fieldset class="col-group ">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_execute_pre_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_execute_pre_sql"><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql_instructions'); ?></em>
@@ -134,7 +134,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>
 
-<fieldset class="col-group ">
+<fieldset class="col-group <?php echo ($form_errors['db_backup_execute_post_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_backup_execute_post_sql"><?php echo $view_helper->m62Lang('db_backup_execute_post_sql'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('db_backup_execute_post_sql_instructions'); ?></em>
