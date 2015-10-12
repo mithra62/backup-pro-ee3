@@ -129,9 +129,8 @@ trait BackupProStorageController
      * Edit a storage entry
      * @return string
      */    
-    public function edit_storage()
+    public function edit_storage($storage_id)
     {
-        $storage_id = ee()->input->get_post('id');
         if( empty($this->settings['storage_details'][$storage_id]) )
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('invalid_storage_id'));
@@ -164,7 +163,7 @@ trait BackupProStorageController
                 if( $this->services['backup']->getStorage()->getLocations()->setSetting($this->services['settings'])->update($storage_id, $variables['form_data']) )
                 {
                     ee()->session->set_flashdata('message_success', $this->services['lang']->__('storage_location_updated'));
-                    ee()->functions->redirect($this->url_base.'view_storage');
+                    ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/view_storage'));
                 }
             }
             else

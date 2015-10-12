@@ -14,8 +14,8 @@ require_once PATH_THIRD.'backup_pro/vendor/autoload.php';
 use mithra62\BackupPro\Platforms\Controllers\Eecms;
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-include PATH_THIRD.'backup_pro/config'.EXT;
-require_once PATH_THIRD.'backup_pro/libraries/controllers/Cron'.EXT;
+include PATH_THIRD.'backup_pro/config.php';
+require_once PATH_THIRD.'backup_pro/libraries/controllers/Cron.php';
 
 
 /**

@@ -52,11 +52,12 @@ trait BackupProSettingsController
                 if( $this->services['settings']->update($data) )
                 {
                     //ee()->session->set_flashdata('message_success', $this->services['lang']->__('settings_updated'));
-                    ee('CP/Alert')->makeInline('bp3-success')
-                                  ->asSuccess()
-                                  ->withTitle($this->services['lang']->__('settings_updated').'fdsa')
-                                  ->addToBody('fdsa')
-                                  ->defer();
+                ee('CP/Alert')->makeBanner('box')
+     ->asSuccess()
+     ->withTitle('fdsafdsa')
+     // ->addToBody('Test data gere')
+     ->defer();
+   
                     ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
                 }
             }

@@ -3,6 +3,7 @@
 		<input type="hidden" name="backups[]" value="<?php echo urlencode($view_helper->m62Encode($backup['file_name'])); ?>" />
 	<?php endforeach; ?>
 <?php endif; ?>
+<div class="tbl-wrap">
 <table width="100%" class="data existing_backups mainTable" id="mainTable" border="0" cellpadding="0" cellspacing="0">
 <thead>
 	<tr class="odd">
@@ -30,7 +31,8 @@
 
 	if($backup['verified'] == '0')
 	{
-		$status_class = 'backup_pro_backup_warn';
+		$status_class = 'st-pending';
+		$status_string = 'Unverified';
 	}
 	elseif($backup['verified'] == 'success')
 	{
@@ -42,7 +44,7 @@
 	}
 ?>
 <tr class="odd">
-	<td class=" backup_pro_backup_status <?php echo $status_class; ?>"></td>
+	<td class="  "><span class="<?php echo $status_class; ?>"><?php echo $status_string; ?></span></td>
 	<?php if(isset($enable_delete) && $enable_delete == 'yes' ): ?>
 	<td><?php echo form_checkbox('backups[]', urlencode($view_helper->m62Encode($backup['file_name'])), false, 'id="'.$backup['hash'].'"'); ?></td>
 	<?php endif; ?>
@@ -99,3 +101,4 @@
 <?php endforeach; ?>
 </tbody>
 </table>
+</div>
