@@ -25,7 +25,7 @@ $this->table->clear();
 <?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/delete_backup_confirm'), array('id'=>'my_accordion')); ?>
 		<input type="hidden" name="type" id="hidden_backup_type" value="files" />
 
-<h3  class="accordion"><?php echo $view_helper->m62Lang('file_backups').' ('.count($backups['files']).')'?></h3>
+<h2><?php echo $view_helper->m62Lang('file_backups').' ('.count($backups['files']).')'?></h2>
 <div id="file_backups">
 	<?php if(count($backups['files']) > 0): ?>
 	<?php 

@@ -25,7 +25,7 @@ $this->table->clear();
 <?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/delete_backup_confirm'), array('id'=>'backup_form')); ?>
 		<input type="hidden" name="type" id="hidden_backup_type" value="database" />	
 
-<h3  class="accordion"><?=$view_helper->m62Lang('database_backups').' ('.count($backups['database']).')';?></h3>
+<h2><?=$view_helper->m62Lang('database_backups').' ('.count($backups['database']).')';?></h2>
 <div id="database_backups">
 	<?php 
 if(count($backups['database']) > 0): 

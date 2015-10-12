@@ -5,7 +5,7 @@
 
 
 <?php echo form_open('', array('id'=>'my_accordion'))?>
-<h3  class="accordion"><?=$view_helper->m62Lang('edit_storage_location')?> (<?=$view_helper->m62Lang($storage_engine['name'])?>)</h3>
+<h2><?=$view_helper->m62Lang('edit_storage_location')?> (<?=$view_helper->m62Lang($storage_engine['name'])?>)</h2>
 
 <?php $this->load->view('storage/_form'); ?>
 

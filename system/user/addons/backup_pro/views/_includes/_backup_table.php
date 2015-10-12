@@ -36,11 +36,13 @@
 	}
 	elseif($backup['verified'] == 'success')
 	{
-		$status_class = 'backup_pro_backup_success';
+		$status_class = 'st-open';
+		$status_string = 'Verified';
 	}
 	elseif($backup['verified'] == 'fail')
 	{
-		$status_class = 'backup_pro_backup_fail';
+		$status_class = 'st-error';
+		$status_string = 'Corrupt';
 	}
 ?>
 <tr class="odd">

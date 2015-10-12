@@ -1,15 +1,14 @@
-<?php $this->load->view('_includes/_errors'); ?>
-<br clear="all" /><?=ee('CP/Alert')->get('fortune-cookie-form')?>
-
-<div class="clear_left shun"></div>
-<div>
-<?php 
-
+<?php $this->load->view('_includes/_errors'); 
 $space_available_header = $view_helper->m62Lang('total_space_available');
 if($settings['auto_threshold'] != '0')
 {
-	$space_available_header .= ' ('.$available_space['available_percentage'].'%)';
+    $space_available_header .= ' ('.$available_space['available_percentage'].'%)';
 }
+?>
+<br clear="all" /><?//=ee('CP/Alert')->get('fortune-cookie-form')?>
+
+<div class="tbl-wrap">
+<?php 
 
 $this->table->set_heading(
 	$view_helper->m62Lang('total_backups'), 
@@ -30,13 +29,12 @@ echo $this->table->generate();
 $this->table->clear();
 ?>
 </div>
-<div class="clear_left shun"></div>
 
 <?php echo form_open($query_base, array('id'=>'my_accordion')); ?>
+<div class="col-group">
+<div class="col w-8">
 
-<table width="100%">
-	<tr>
-		<td width="50%">
+
 		<?php 
 		$this->table->set_heading(array('data' => $view_helper->m62Lang('database_backups'), 'width' => '50%'),' ');
 		$this->table->add_row('<strong>'.$view_helper->m62Lang('total_backups').'</strong>', $backup_meta['database']['total_backups']);
@@ -47,8 +45,10 @@ $this->table->clear();
 		// Clear out of the next one
 		$this->table->clear();		
 		?>
-		</td>
-		<td valign="top">
+</div>
+<div class="col w-8">
+		
+		
 		<?php 
 		$this->table->set_heading(array('data' =>$view_helper->m62Lang('file_backups'), 'width' => '50%'),' ');
 		$this->table->add_row('<strong>'.$view_helper->m62Lang('total_backups').'</strong>', $backup_meta['files']['total_backups']);
@@ -59,10 +59,9 @@ $this->table->clear();
 		// Clear out of the next one
 		$this->table->clear();		
 		?>
-		</td>
-	</tr>
-</table>
-<h3  class="accordion"><?=$view_helper->m62Lang('recent_backups').' ('.count($backups).')';?></h3>
+		</div>
+</div>		
+<h2><?=$view_helper->m62Lang('recent_backups').' ('.count($backups).')';?></h2>
 <div id="backups">
 	<?php 
 		if(count($backups) > 0):
