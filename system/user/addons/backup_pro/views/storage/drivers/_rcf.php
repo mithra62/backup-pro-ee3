@@ -1,22 +1,44 @@
-<?php 
-$cf_location_options = array('us' => 'US', 'uk' => 'UK');
+<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_username']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="rcf_username"><?php echo $view_helper->m62Lang('rcf_username'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('rcf_username_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('rcf_username', $form_data['rcf_username'], 'id="rcf_username"'); ?>
+		<?php echo m62_form_errors($form_errors['rcf_username']); ?>
+	</div>
+</fieldset>
 
-$this->table->add_row(
-    '<label for="rcf_username">'.$view_helper->m62Lang('rcf_username').'</label><div class="subtext">'.$view_helper->m62Lang('rcf_username_instructions').'</div>', 
-    form_input('rcf_username', $form_data['rcf_username'], 'id="rcf_username"').m62_form_errors($form_errors['rcf_username'])
-);
+<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_api']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="rcf_api"><?php echo $view_helper->m62Lang('rcf_api'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('rcf_api_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_password('rcf_api', $form_data['rcf_api'], 'id="rcf_api"'); ?>
+		<?php echo m62_form_errors($form_errors['rcf_api']); ?>
+	</div>
+</fieldset>
 
-$this->table->add_row(
-    '<label for="rcf_api">'.$view_helper->m62Lang('rcf_api').'</label><div class="subtext">'.$view_helper->m62Lang('rcf_api_instructions').'</div>', 
-    form_password('rcf_api', $form_data['rcf_api'], 'id="rcf_api"').m62_form_errors($form_errors['rcf_api'])
-);
+<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_container']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="rcf_container"><?php echo $view_helper->m62Lang('rcf_container'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('rcf_container_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('rcf_container', $form_data['rcf_container'], 'id="rcf_container"'); ?>
+		<?php echo m62_form_errors($form_errors['rcf_container']); ?>
+	</div>
+</fieldset>
 
-$this->table->add_row(
-    '<label for="rcf_container">'.$view_helper->m62Lang('rcf_container').'</label><div class="subtext">'.$view_helper->m62Lang('rcf_container_instructions').'</div>', 
-    form_input('rcf_container', $form_data['rcf_container'], 'id="rcf_container"').m62_form_errors($form_errors['rcf_container'])
-);
-
-$this->table->add_row(
-    '<label for="rcf_location">'.$view_helper->m62Lang('rcf_location').'</label><div class="subtext">'.$view_helper->m62Lang('rcf_location_instructions').'</div>', 
-    form_dropdown('rcf_location', $cf_location_options, $form_data['rcf_location'], 'id="rcf_location"').m62_form_errors($form_errors['rcf_location'])
-);
+<?php $cf_location_options = array('us' => 'US', 'uk' => 'UK'); ?>
+<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_location']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="rcf_location"><?php echo $view_helper->m62Lang('rcf_location'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('rcf_location_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_dropdown('rcf_location', $cf_location_options, $form_data['rcf_location'], 'id="rcf_location"'); ?>
+		<?php echo m62_form_errors($form_errors['rcf_location']); ?>
+	</div>
+</fieldset>

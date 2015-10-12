@@ -1,4 +1,5 @@
 <?php $this->load->view('_includes/_errors'); ?>
+<?php $this->load->view('storage/_submenu')?>
 <div class="clear_left shun"></div>
 <p><?php echo $view_helper->m62Lang($storage_engine['desc']); ?></p>
 

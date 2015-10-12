@@ -109,10 +109,6 @@ class Backup_pro_mcp extends Ee3
 		        'view_helper' => $this->view_helper
 		    )
 		);
-
-
-		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module='.$this->mod_name, ee()->lang->line('backup_pro_module_name'));
-		ee()->cp->set_right_nav($nav_links);
 		
 		ee()->cp->add_to_foot('<link type="text/css" rel="stylesheet" href="'.m62_theme_url().'backup_pro/css/backup_pro.css" />');
 		ee()->cp->add_to_foot('<link type="text/css" rel="stylesheet" href="'.m62_theme_url().'backup_pro/css/chosen.css" />');
