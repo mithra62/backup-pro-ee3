@@ -17,9 +17,6 @@
 	</div>
 </div>
 
-<div id="backup_dashboard_menu" style="display:none">
-<?php $this->load->view('_includes/_backups_submenu'); ?>
-</div>
 <br clear="all" />
 
 <input type="hidden" id="__backup_proc_url" value="<?php echo $proc_url; ?>">
@@ -43,7 +40,7 @@
             echo $view_helper->m62Lang($error);
             if( $error == 'no_storage_locations_setup' )
             {
-                echo ' <a href="'.$url_base.'new_storage&engine=local">Setup Storage Location</a>';
+                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/new_storage').'">Setup Storage Location</a>';
             }
             elseif( $error == 'license_number' || $error == 'missing_license_number' )
             {
@@ -51,11 +48,11 @@
             }
             elseif( $error == 'invalid_working_directory' )
             {
-                echo ' <a href="'.$url_base.'settings">Check Working Directory</a>';
+                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/index').'">Check Working Directory</a>';
             }
             elseif( $error == 'no_backup_file_location' )
             {
-                echo ' <a href="'.$url_base.'settings&section=files">Set File Backup Locations</a>';
+                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/files').'">Set File Backup Locations</a>';
             }
             echo '<br />';
         endforeach;?>

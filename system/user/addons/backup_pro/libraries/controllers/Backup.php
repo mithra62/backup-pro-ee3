@@ -121,13 +121,13 @@ trait BackupProBackupController
         switch($type)
         {
             case 'database':
-                $proc_url = $this->url_base.'backup_database';
+                $proc_url = ee('CP/URL', 'addons/settings/backup_pro/backup_database');
                 $errors = $this->services['errors']->clearErrors()->checkWorkingDirectory($this->settings['working_directory'])
                                                  ->checkStorageLocations($this->settings['storage_details'])
                                                  ->getErrors();
                 break;
             case 'files':
-                $proc_url = $this->url_base.'backup_files';
+                $proc_url = ee('CP/URL', 'addons/settings/backup_pro/backup_files');
                 $errors = $this->services['errors']->clearErrors()->checkWorkingDirectory($this->settings['working_directory'])
                                                  ->checkStorageLocations($this->settings['storage_details'])
                                                  ->checkFileBackupLocations($this->settings['backup_file_location'])
@@ -154,6 +154,12 @@ trait BackupProBackupController
         $vars['backup_type'] = $type;
         $vars['menu_data'] = ee()->backup_pro->get_dashboard_view_menu();
         $vars['method'] = '';
-        return ee()->load->view('backup', $vars, TRUE);
+        return array(
+            'body' => ee()->load->view('backup', $vars, true),
+            'heading' => $this->services['lang']->__('backup_'.$type),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('backup_pro_module_name'),
+            )
+        );
     }
 }
