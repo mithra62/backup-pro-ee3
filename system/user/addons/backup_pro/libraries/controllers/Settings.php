@@ -52,7 +52,7 @@ trait BackupProSettingsController
                 if( $this->services['settings']->update($data) )
                 {
                     ee()->session->set_flashdata('message_success', $this->services['lang']->__('settings_updated'));
-                    ee()->functions->redirect($this->url_base.'settings'.AMP.'section='.ee()->input->get_post('section'));
+                    ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
                 }
             }
             else

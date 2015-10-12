@@ -1,4 +1,5 @@
 <?php $this->load->view('_includes/_errors'); ?>
+<?php $this->load->view('storage/_submenu')?>
 <?php 
 
 $tmpl = array (
