@@ -26,3 +26,5 @@ if(count($errors) >= 1)
 		echo '</div>';
 	}
 }
+
+ echo ee('CP/Alert')->getAllInlines();

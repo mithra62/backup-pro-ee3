@@ -20,9 +20,7 @@ switch($section)
 }
 
 ?>
-<div class="tableFooter">
-	<div class="tableSubmit">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $lang->__('update_settings'), 'class' => 'submit'));?>
-	</div>
-</div>	
+<fieldset class="form-ctrls">
+		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('update_settings'), 'class' => 'btn'));?>
+</fieldset>
 <?php echo form_close()?>
