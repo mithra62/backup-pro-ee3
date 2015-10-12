@@ -93,7 +93,7 @@ trait BackupProStorageController
                 if( $this->services['backup']->getStorage()->getLocations()->setSetting($this->services['settings'])->create($engine, $variables['form_data']) )
                 {
                     ee()->session->set_flashdata('message_success', $this->services['lang']->__('storage_location_added'));
-                    ee()->functions->redirect($this->url_base.'view_storage');
+                    ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/view_storage'));
                 }
             }
             else
@@ -176,14 +176,24 @@ trait BackupProStorageController
         $variables['section'] = 'storage';
         $variables['storage_id'] = $storage_id;
         ee()->view->cp_page_title = $this->services['lang']->__('storage_bp_settings_menu');
-        return ee()->load->view('storage/edit', $variables, true);
+        //return ee()->load->view('storage/edit', $variables, true);
+
+        return array(
+            'body' => ee()->load->view('storage/edit', $variables, true),
+            'heading' => $this->services['lang']->__('edit_storage_location'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('settings'),
+                ee('CP/URL', 'addons/settings/backup_pro/view_storage')->compile() => $this->services['lang']->__('storage_bp_settings_menu'),
+            )
+        );
     }
     
     /**
      * Remove a storage entry
      * @return string
      */    
-    public function remove_storage()
+    public function remove_storage($storage_id)
     {
         if( count($this->settings['storage_details']) <= 1 )
         {
@@ -191,7 +201,6 @@ trait BackupProStorageController
             ee()->functions->redirect($this->url_base.'view_storage');
         }
     
-        $storage_id = ee()->input->get_post('id');
         if( empty($this->settings['storage_details'][$storage_id]) )
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('invalid_storage_id'));
@@ -232,7 +241,15 @@ trait BackupProStorageController
         $variables['menu_data'] = ee()->backup_pro->get_settings_view_menu();
         $variables['section'] = 'storage';
         $variables['storage_id'] = $storage_id;
-        ee()->view->cp_page_title = $this->services['lang']->__('storage_bp_settings_menu');
-        return ee()->load->view('storage/remove', $variables, true);
+
+        return array(
+            'body' => ee()->load->view('storage/remove', $variables, true),
+            'heading' => $this->services['lang']->__('remove_storage_location'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('settings'),
+                ee('CP/URL', 'addons/settings/backup_pro/view_storage')->compile() => $this->services['lang']->__('storage_bp_settings_menu'),
+            )
+        );        
     }
 }

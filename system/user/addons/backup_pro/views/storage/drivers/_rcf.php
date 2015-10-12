@@ -1,4 +1,4 @@
-<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_username']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['rcf_username']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="rcf_username"><?php echo $view_helper->m62Lang('rcf_username'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('rcf_username_instructions'); ?></em>
@@ -9,7 +9,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required <?php echo (is_array($form_errors['rcf_api']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['rcf_api']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="rcf_api"><?php echo $view_helper->m62Lang('rcf_api'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('rcf_api_instructions'); ?></em>

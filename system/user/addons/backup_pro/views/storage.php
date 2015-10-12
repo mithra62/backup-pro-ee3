@@ -33,8 +33,7 @@ $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_
     	       '<img src="'.$theme_folder_url.'backup_pro/images/storage/'.$storage['storage_location_driver'].'.png" class="" title="'.$storage['storage_location_name'].'">',
     	       ( $storage['storage_location_status'] == '1' ? $view_helper->m62Lang('active') : $view_helper->m62Lang('inactive') ),
     	       $view_helper->m62DateTime($storage['storage_location_create_date']),
-    	       ($can_remove ? '<a href="'.$url_base.'remove_storage&id='.$key.'">Remove</a>' : '')
-    	       //'<a href="{{ url('backuppro/settings/storage/edit') }}?id={{ key }}">{{ storage.storage_location_name }}</a>'    
+    	       ($can_remove ? '<ul class="toolbar"><li class="remove"><a href="'.ee('CP/URL', 'addons/settings/backup_pro/remove_storage/'.$key).'"></a></li></ul>' : '')  
 	       );
     	   $this->table->add_row($row);
     	endforeach;

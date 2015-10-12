@@ -1,6 +1,7 @@
 <?php $this->load->view('_includes/_errors'); ?>
 <br clear="all" />
-	
+
+<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/restore_database'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>	
 <h2><?php echo $view_helper->m62Lang('restore_db'); ?></h2>
 
 <p><?php echo $view_helper->m62Lang('restore_db_question'); ?></p>
@@ -22,7 +23,6 @@
 	<strong><?php echo $view_helper->m62Lang('md5_hash'); ?>:</strong> <?php echo $backup['hash']; ?>
 </p>
 
-<?php echo form_open($query_base.'restore_database&id='.urlencode($view_helper->m62Encode($backup['details_file_name'])), array('id'=>'backup_form')); ?>
 
 	<div class="buttons">
 		<input type="submit" value="<?php echo $view_helper->m62Lang('restore'); ?>" class="btn submit" >

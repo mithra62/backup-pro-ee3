@@ -13,7 +13,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required <?php echo ($form_errors['cron_query_key'] ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo ($form_errors['cron_query_key'] ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="cron_query_key"><?php echo $view_helper->m62Lang('cron_query_key'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('cron_query_key_instructions'); ?></em>

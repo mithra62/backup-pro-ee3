@@ -12,7 +12,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required <?php echo (is_array($form_errors['ftp_username']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['ftp_username']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="ftp_username"><?php echo $view_helper->m62Lang('ftp_username'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('ftp_username_instructions'); ?></em>
@@ -23,7 +23,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required <?php echo (is_array($form_errors['ftp_password']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['ftp_password']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="ftp_password"><?php echo $view_helper->m62Lang('ftp_password'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('ftp_password_instructions'); ?></em>

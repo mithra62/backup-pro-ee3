@@ -1,10 +1,10 @@
 <?php $this->load->view('_includes/_errors'); ?>
 
 <?php if( count($pre_backup_errors) == '0' ):?>
+
 <div id="backup_instructions">
 <?php echo $lang->__('backup_in_progress_instructions'); ?><br />
 </div>
-
 <div class="bp_top_nav" id="_backup_start_container">
 	<div class="bp_nav">
 		<span class="button"> 

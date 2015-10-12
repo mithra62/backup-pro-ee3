@@ -1,6 +1,6 @@
 <input type="hidden" value="0" name="s3_reduced_redundancy" />
 
-<fieldset class="col-group required <?php echo (is_array($form_errors['s3_access_key']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['s3_access_key']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="s3_access_key"><?php echo $view_helper->m62Lang('s3_access_key'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('s3_access_key_instructions'); ?></em>
@@ -11,7 +11,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group required <?php echo (is_array($form_errors['s3_secret_key']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['s3_secret_key']) ? 'invalid' : 'security-enhance'); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="s3_secret_key"><?php echo $view_helper->m62Lang('s3_secret_key'); ?></label></h3>
 		<em><?php echo $view_helper->m62Lang('s3_secret_key_instructions'); ?></em>

@@ -37,8 +37,14 @@ trait BackupProRestoreController
             'method' => ee()->input->get_post('method'),
         );
     
-        ee()->view->cp_page_title = $this->services['lang']->__('restore_db');
-        return ee()->load->view('restore_confirm', $variables, true);
+        return array(
+            'body' => ee()->load->view('restore_confirm', $variables, true),
+            'heading' => $this->services['lang']->__('restore_db'),
+            'breadcrumb' => array(
+                ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('db_backups'),
+            )
+        );        
     }
     
     /**
