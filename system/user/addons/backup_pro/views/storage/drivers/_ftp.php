@@ -40,7 +40,7 @@
 		<em><?php echo $view_helper->m62Lang('ftp_port_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8">
-		<?php echo form_input('ftp_username', $form_data['ftp_port'], 'id="ftp_port"'); ?>
+		<?php echo form_input('ftp_port', $form_data['ftp_port'], 'id="ftp_port"'); ?>
 		<?php echo m62_form_errors($form_errors['ftp_port']); ?>
 	</div>
 </fieldset>
