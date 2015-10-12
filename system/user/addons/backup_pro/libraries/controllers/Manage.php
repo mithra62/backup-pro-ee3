@@ -116,7 +116,7 @@ trait BackupProManageController
         if( $this->services['backups']->setBackupPath($this->settings['working_directory'])->removeBackups($backups) )
         {
             ee()->session->set_flashdata('message_success', $this->services['lang']->__('backups_deleted'));
-            ee()->functions->redirect($this->url_base.'index');
+            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
         }
         else
         {
