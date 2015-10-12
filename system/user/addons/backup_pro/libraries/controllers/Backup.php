@@ -52,7 +52,7 @@ trait BackupProBackupController
                                      ->duplicates($this->settings['allow_duplicates']);
                 
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('backup_progress_bar_stop'));
-                ee()->functions->redirect($this->url_base.'db_backups');
+                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
             }
         }
         else
@@ -93,7 +93,7 @@ trait BackupProBackupController
                                      ->duplicates($this->settings['allow_duplicates']);
                 
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('backup_progress_bar_stop'));
-                ee()->functions->redirect($this->url_base.'file_backups');
+                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/file_backups'));
                 exit;
             }
         }

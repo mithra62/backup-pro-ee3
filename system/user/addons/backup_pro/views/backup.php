@@ -8,7 +8,7 @@
 <div class="bp_top_nav" id="_backup_start_container">
 	<div class="bp_nav">
 		<span class="button"> 
-			<a class="nav_button" href="<?php echo $proc_url; ?>" id="_backup_direct"><?php echo $view_helper->m62Lang('start_backup'); ?></a>
+			<a class="btn" href="<?php echo $proc_url; ?>" id="_backup_direct"><?php echo $view_helper->m62Lang('start_backup'); ?></a>
         	<div id="backup_running_details"  style="display:none" >
         	<?php echo $view_helper->m62Lang('backup_in_progress'); ?>
         	<img src="<?php echo $theme_folder_url; ?>backup_pro/images/indicator.gif" id="animated_image" />
