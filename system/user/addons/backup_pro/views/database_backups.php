@@ -43,7 +43,7 @@ if(count($backups['database']) > 0):
 <?php if(count($backups['database']) != '0'): ?>
 <div class="tableFooter">
 	<div class="tableSubmit">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('delete_selected'), 'class' => 'submit', 'id' => 'submit_button'));?>
+		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('delete_selected'), 'class' => 'btn', 'id' => 'submit_button'));?>
 	</div>
 </div>	
 <?php endif;?>

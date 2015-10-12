@@ -41,7 +41,7 @@ $this->table->clear();
 <?php if(count($backups['files']) != '0'): ?>
 <div class="tableFooter">
 	<div class="tableSubmit">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('delete_selected'), 'class' => 'submit'));?>
+		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('delete_selected'), 'class' => 'btn'));?>
 	</div>
 </div>	
 <?php endif;?>

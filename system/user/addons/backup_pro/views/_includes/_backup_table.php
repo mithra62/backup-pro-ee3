@@ -77,7 +77,7 @@
             <?php if( $backup['backup_type'] == 'database'): ?> 
             
             <?php if( $backup['can_restore'] ): ?>
-    			<a href="<?php echo $url_base;?>restore_confirm&id=<?php echo urlencode($view_helper->m62Encode($backup['details_file_name'])); ?>&type=<?php echo $backup['backup_type']; ?>" title="<?php echo $view_helper->m62Lang('restore'); ?>">
+    			<a href="<?php echo ee('CP/URL', 'addons/settings/backup_pro/restore_confirm'.AMP);?>id=<?php echo urlencode($view_helper->m62Encode($backup['details_file_name'])); ?>&type=<?php echo $backup['backup_type']; ?>" title="<?php echo $view_helper->m62Lang('restore'); ?>">
     				<img src="<?php echo $theme_folder_url; ?>backup_pro/images/restore.png" alt="<?php echo $view_helper->m62Lang('restore'); ?>" class="">
     			</a> 
             <?php else: ?>
@@ -86,7 +86,7 @@
 			
 		<?php endif; ?>
         <?php if( $backup['can_download'] ): ?>
-    		<a href="<?php echo $url_base;?>download&id=<?php echo urlencode($view_helper->m62Encode($backup['details_file_name'])); ?>&type=<?php echo $backup['backup_type']; ?>" title="<?php echo $view_helper->m62Lang('download'); ?>">
+    		<a href="<?php echo ee('CP/URL', 'addons/settings/backup_pro/download'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name'])).AMP.'type='.$backup['backup_type']);?>" title="<?php echo $view_helper->m62Lang('download'); ?>">
     			<img src="<?php echo $theme_folder_url; ?>backup_pro/images/download.png" alt="<?php echo $view_helper->m62Lang('download'); ?>" class="">
     		</a> 
 		<?php else: ?>

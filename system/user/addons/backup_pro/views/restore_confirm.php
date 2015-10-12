@@ -1,5 +1,4 @@
 <?php $this->load->view('_includes/_errors'); ?>
-<?php $this->load->view('_includes/_backups_submenu'); ?>
 <br clear="all" />
 	
 <h2><?php echo $view_helper->m62Lang('restore_db'); ?></h2>
@@ -11,7 +10,7 @@
 	<strong><?php echo $view_helper->m62Lang('taken'); ?>:</strong> <?php echo $view_helper->m62DateTime($backup['created_date']); ?> <br />
 	<strong><?php echo $view_helper->m62Lang('backup_type'); ?>:</strong> <?php echo $view_helper->m62Lang($backup['database_backup_type']); ?><br />
 	<strong><?php echo $view_helper->m62Lang('verified'); ?>:</strong> 
-		<?php if( $backup['verified'] == 'success'): ?>
+		<?php if( $backup['verified'] === 'success'): ?>
 			<span class="success"><?php echo $view_helper->m62Lang('yes'); ?></span>
 		<?php else: ?>
 			<span class="notice"><?php echo $view_helper->m62Lang('no'); ?></span>
