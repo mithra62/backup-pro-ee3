@@ -106,7 +106,8 @@ class Backup_pro_mcp extends Ee3
 		        'nav_links' => $nav_links,
 		        'theme_folder_url' => m62_theme_url(),
 		        'lang' => $this->services['lang'],
-		        'view_helper' => $this->view_helper
+		        'view_helper' => $this->view_helper,
+		        'note_url' => ee('CP/URL', 'addons/settings/backup_pro/update_backup_note')
 		    )
 		);
 		

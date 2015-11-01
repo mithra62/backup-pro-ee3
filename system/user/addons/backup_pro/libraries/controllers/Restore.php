@@ -74,7 +74,7 @@ trait BackupProRestoreController
             if( $this->services['restore']->setDbInfo($db_info)->setBackupInfo($backup_info)->database($db_info['database'], $restore_file_path, $this->settings, $this->services['shell']) )
             {
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('database_restored'));
-                ee()->functions->redirect($this->url_base.'db_backups');
+                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
             }
         }
         else

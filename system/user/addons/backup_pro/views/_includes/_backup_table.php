@@ -3,7 +3,9 @@
 		<input type="hidden" name="backups[]" value="<?php echo urlencode($view_helper->m62Encode($backup['file_name'])); ?>" />
 	<?php endforeach; ?>
 <?php endif; ?>
-<div class="tbl-wrap">
+
+<input type="hidden" value="<?php echo $note_url; ?>" name="__note_url" id="__note_url" />
+<div class="tbl-wrap box">
 <table width="100%" class="data existing_backups mainTable" id="mainTable" border="0" cellpadding="0" cellspacing="0">
 <thead>
 	<tr class="odd">

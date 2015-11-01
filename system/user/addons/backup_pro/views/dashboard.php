@@ -1,3 +1,4 @@
+<div class="box">
 <?php $this->load->view('_includes/_errors'); 
 $space_available_header = $view_helper->m62Lang('total_space_available');
 if($settings['auto_threshold'] != '0')
@@ -7,7 +8,7 @@ if($settings['auto_threshold'] != '0')
 ?>
 <br clear="all" /><?//=ee('CP/Alert')->get('fortune-cookie-form')?>
 
-<div class="tbl-wrap">
+<div class="tbl-wrap ">
 <?php 
 
 $this->table->set_heading(
@@ -74,3 +75,4 @@ $this->table->clear();
 </div>
 
 <?php echo form_close()?>
+</div>
