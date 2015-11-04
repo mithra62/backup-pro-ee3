@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Backup Pro EE3" default="move_zip">
+
+	<property name="platform_name" value="EE3" />
+	<property name="build_path" value="../builds/ee3" />
+	<property name="build_container_dir" value="${build_path}/backup_pro" />
+	<property name="main_files" value="system" />
+	<property name="cms_root_path" value="${build_container_dir}/system" />
+	<property name="vendor_path" value="${cms_root_path}/user/addons/backup_pro/vendor" />
+	<property name="backup_pro_logic_base" value="${cms_root_path}/user/addons/backup_pro/mithra62/BackupPro" />
+	<property name="jaeger_base" value="${cms_root_path}/user/addons/backup_pro/mithra62" />
+		
+	<property name="platform_theme_base" value="${build_container_dir}/themes/user" />		
+	<property name="backup_pro_theme_base" value="${platform_theme_base}/backup_pro" />
+	<property name="build_archive_path" value="${build_path}/backup_pro.ee3.${version}.zip" />
+	<property name="export_archive_path" value="../../product-export/ee3/backup_pro.ee3.${version}.zip" />
+		
+	<property name="clean_install_bp_core_file_path" value="../../clean_cms/ee3/html/system/user/addons/backup_pro" />
+	<property name="clean_install_bp_theme_path" value="../../clean_cms/ee3/html/themes/user/backup_pro" />
+		
+	<property name="clean_install_cms_add_on_path" value="../../clean_cms/ee3/html/system" />
+	<property name="clean_install_cms_theme" value="../../clean_cms/ee3/html/themes/user" />
+	<property name="mink_test_dir" value="EE3" />
+	
+	<import file="../backup-pro-lib/phing.prepare.xml" />
+	<import file="../backup-pro-lib/phing.cms-files.xml" />
+	<import file="../backup-pro-lib/phing.vendor-no-dev.xml" /> 
+	<import file="../backup-pro-lib/phing.bp-files.xml" /> 
+	<import file="../backup-pro-lib/phing.clean-install.xml" />  
+	<import file="../backup-pro-lib/phing.unit-test.xml" /> 
+	<import file="../backup-pro-lib/phing.archive.xml" /> 
+    	
+</project>
