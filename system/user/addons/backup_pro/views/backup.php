@@ -34,7 +34,7 @@
 
 
     <?php else: ?>
-        <p>You're going to need to fix the below configuration errors before you can start taking backups:</p>
+        <p><?php echo $view_helper->m62Lang('pre_backup_setting_issue_blurb'); ?>:</p>
         <?php 
         foreach($pre_backup_errors AS $key => $error): 
             echo $view_helper->m62Lang($error);
