@@ -21,6 +21,6 @@ switch($section)
 
 ?>
 <fieldset class="form-ctrls">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('update_settings'), 'class' => 'btn'));?>
+		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('update_settings'), 'class' => 'btn', 'id' => 'm62_settings_submit'));?>
 </fieldset>
 <?php echo form_close()?>
