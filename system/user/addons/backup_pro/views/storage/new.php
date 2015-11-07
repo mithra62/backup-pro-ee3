@@ -10,7 +10,7 @@
 <?php $this->load->view('storage/_form'); ?>
 
 <fieldset class="form-ctrls">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('add_storage_location'), 'class' => 'btn'));?>
+		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('add_storage_location'), 'class' => 'btn','id' => 'm62_settings_submit'));?>
 </fieldset>
 	
 <?php echo form_close()?>
