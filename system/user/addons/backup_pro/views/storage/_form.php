@@ -55,7 +55,7 @@
 		<em><?php echo $view_helper->m62Lang('storage_location_include_prune_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 ">
-		<?php echo form_checkbox('storage_location_include_prune', '1', $form_data['storage_location_include_prune'], 'id="storage_location_db_use"'); ?>
+		<?php echo form_checkbox('storage_location_include_prune', '1', $form_data['storage_location_include_prune'], 'id="storage_location_include_prune"'); ?>
 		<?php echo m62_form_errors($form_errors['storage_location_include_prune']); ?>
 	</div>
 </fieldset>
