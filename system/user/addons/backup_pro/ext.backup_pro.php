@@ -4,7 +4,7 @@
  *
  * @copyright	Copyright (c) 2015, mithra62, Eric Lamb.
  * @link		http://mithra62.com/projects/view/backup-pro/
- * @version		2.0
+ * @version		3.0
  * @filesource 	./system/expressionengine/third_party/backup_pro/
  */
 
