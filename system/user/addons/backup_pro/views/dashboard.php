@@ -6,7 +6,7 @@ if($settings['auto_threshold'] != '0')
     $space_available_header .= ' ('.$available_space['available_percentage'].'%)';
 }
 ?>
-<br clear="all" /><?//=ee('CP/Alert')->get('fortune-cookie-form')?>
+<br clear="all" />
 
 <div class="tbl-wrap ">
 <?php 
