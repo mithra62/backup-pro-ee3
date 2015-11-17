@@ -97,6 +97,11 @@ class Backup_pro_mcp extends Ee3
 		$this->url_base = BASE.AMP.$this->query_base;
 		ee()->backup_pro->set_url_base($this->url_base);
 
+		//grab the backup details
+		$backup = $this->services['backups'];
+		$backups = $backup->setBackupPath($this->settings['working_directory'])->getAllBackups($this->settings['storage_details']);
+		$backup_meta = $backup->getBackupMeta($backups);
+		
 		$nav_links = ee()->backup_pro->get_backup_menu($this->settings);
 		ee()->load->vars(
 		    array(
@@ -107,7 +112,9 @@ class Backup_pro_mcp extends Ee3
 		        'theme_folder_url' => m62_theme_url(),
 		        'lang' => $this->services['lang'],
 		        'view_helper' => $this->view_helper,
-		        'note_url' => ee('CP/URL', 'addons/settings/backup_pro/update_backup_note')
+		        'note_url' => ee('CP/URL', 'addons/settings/backup_pro/update_backup_note'),
+		        'backup_meta' => $backup_meta,
+		        'backups' => $backups
 		    )
 		);
 		

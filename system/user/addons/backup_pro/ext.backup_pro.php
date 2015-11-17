@@ -10,7 +10,7 @@
 
 require_once PATH_THIRD.'backup_pro/vendor/autoload.php';
 
-use mithra62\BackupPro\Platforms\Controllers\Eecms;
+use mithra62\BackupPro\Platforms\Controllers\Ee3;
 use mithra62\BackupPro\BackupPro;
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
@@ -26,7 +26,7 @@ include PATH_THIRD.'backup_pro/config.php';
  * @author		Eric Lamb
  * @filesource 	./system/expressionengine/third_party/backup_pro/ext.backup_pro.php
  */
-class Backup_pro_ext extends Eecms implements BackupPro
+class Backup_pro_ext extends Ee3 implements BackupPro
 {
 	/**
 	 * The Backup Pro settings array
@@ -200,26 +200,20 @@ class Backup_pro_ext extends Eecms implements BackupPro
         $backup = $this->services['backups']->setBackupPath($this->settings['working_directory']);
         $backups = $backup->getAllBackups($this->settings['storage_details']);
         $backup_meta = $backup->getBackupMeta($backups);
-        $errors = $backup->getIntegrity()->monitorBackupState($backup_meta, $this->settings);
-        
-        if(isset($errors['backup_state_db_backups']) || isset($errors['backup_state_files_backups']))
-        {
-            $notify = $this->services['notify'];
-            $notify->getMail()->setConfig($this->platform->getEmailConfig());
-            
-            //we have a winner! start the notification process
-            $last_notified = $this->settings['backup_missed_schedule_notify_email_last_sent'];
-            $next_notified = mktime(date('G', $last_notified)+$this->settings['backup_missed_schedule_notify_email_interval'], date('i', $last_notified), 0, date('n', $last_notified), date('j', $last_notified), date('Y', $last_notified));
-            
-            if(time() > $next_notified && (is_array($this->settings['backup_missed_schedule_notify_emails']) &&  count($this->settings['backup_missed_schedule_notify_emails']) >= 1 ))
-            {
-                $backup = $this->services['backup']->setStoragePath($this->settings['working_directory']);
-                $notify->setBackup($backup)->sendBackupState($this->settings['backup_missed_schedule_notify_emails'], $backup_meta, $errors);
-                
-                $data = array('backup_missed_schedule_notify_email_last_sent' => time());
-                $this->services['settings']->update($data);
-            }
-        }        
+        $errors = $this->errors;
+	    if( $this->settings['check_backup_state_cp_login'] == '1' && 
+	        count($this->settings['backup_missed_schedule_notify_emails']) >= 1 &&
+	        (isset($errors['db_backup_past_expectation']) || isset($errors['file_backup_past_expectation'])) 
+	      )
+	    {
+	        $backups = $this->services['backups'];
+	        $backup_data = $backups->setBackupPath($this->settings['working_directory'])->getAllBackups($this->settings['storage_details']);
+	        $backup_meta = $backups->getBackupMeta($backup_data);
+	        $notify = $this->services['notify']->setBackup( $this->services['backup']);
+	        $this->services['backups']->getIntegrity()->notifyBackupState($backup_meta, $this->settings, $errors, $notify );
+	        
+	        $this->services['settings']->updateSetting('backup_missed_schedule_notify_email_last_sent', time());
+	    }      
 	}
 
 	/**
