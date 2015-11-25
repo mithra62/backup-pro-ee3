@@ -75,7 +75,7 @@
 	<td><?php echo $view_helper->m62Lang($backup['backup_type']); ?></td>
 	<?php endif; ?>
 	<td style="white-space: nowrap"><!-- <?php echo $backup['compressed_size']; ?> --><?php echo $view_helper->m62FileSize($backup['compressed_size']); ?></td>
-	<td style="white-space: nowrap"><!-- <?php echo $backup['time_taken']; ?> --><?php echo number_format($backup['time_taken'], 2, '.', ','); ?>s</td>
+	<td style="white-space: nowrap"><!-- <?php echo $backup['time_taken']; ?> --><?php echo $view_helper->m62TimeFormat($backup['time_taken']); ?>s</td>
 	<td style="white-space: nowrap"><!-- <?php echo $backup['max_memory']; ?> --><?php echo $view_helper->m62FileSize($backup['max_memory']); ?></td>
 		<?php if(isset($enable_actions) && $enable_actions == 'yes' ): ?>
 	<td align="right" style="width:40px; white-space: nowrap">
