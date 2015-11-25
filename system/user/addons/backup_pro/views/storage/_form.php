@@ -16,7 +16,7 @@
 
 <?php $this->load->view($_form_template); ?>
 
-<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_status']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_status']) ? 'invalid required' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="storage_location_status"><?php echo $view_helper->m62Lang('storage_location_status'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_status_instructions'); ?></em>
@@ -27,7 +27,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_file_use']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_file_use']) ? 'invalid required ' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="storage_location_file_use"><?php echo $view_helper->m62Lang('storage_location_file_use'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_file_use_instructions'); ?></em>
@@ -38,7 +38,7 @@
 	</div>
 </fieldset>
 
-<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_db_use']) ? 'invalid' : ''); ?>">
+<fieldset class="col-group <?php echo (is_array($form_errors['storage_location_db_use']) ? 'invalid required' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="storage_location_db_use"><?php echo $view_helper->m62Lang('storage_location_db_use'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_db_use_instructions'); ?></em>

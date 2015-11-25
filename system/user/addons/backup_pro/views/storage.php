@@ -1,4 +1,8 @@
+<div class="box">
 <?php $this->load->view('_includes/_errors'); ?>
+
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('storage_bp_settings_menu'); ?></h1>
+
 <?php $this->load->view('storage/_submenu')?>
 <?php 
 
@@ -21,10 +25,7 @@ $tmpl = array (
 $this->table->set_template($tmpl); 
 $this->table->set_empty("&nbsp;");
 $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_helper->m62Lang('type'), $view_helper->m62Lang('status'), $view_helper->m62Lang('created_date'), '');
-?>
-<div class="clear_left shun"></div>
 
-<?php 
 	if(count($storage_details) > 0):
 	
     	foreach($storage_details AS $key => $storage): 
@@ -41,6 +42,11 @@ $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_
     	echo $this->table->generate();
     	$this->table->clear();    	
 ?>
-<?php else: ?>
-	<div class="no_backup_found"><?php echo $view_helper->m62Lang('no_storage_locations_created_yet')?></div>
+<?php else: ?><br clear="all" />
+<div id="backups" class="tbl-ctrls">
+	<div class="alert inline warn"><h3>Woops</h3>
+        <ul><li><?php echo $view_helper->m62Lang('no_storage_locations_created_yet')?></a></li></ul>
+    </div>
+    </div>
 <?php endif; ?>
+</div>
