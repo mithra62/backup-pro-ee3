@@ -1,7 +1,7 @@
 <?php
 if(count($errors) >= 1)
 {
-	echo '<div class="alert inline issue"><h3>Uh-oh... There are some issues...</h3><ul>';
+	echo '<div class="alert issue"><h3>Uh-oh... There are some issues...</h3><ul>';
 	foreach($errors AS $key => $error)
 	{
 		echo '<li>';
@@ -17,7 +17,7 @@ if(count($errors) >= 1)
 		}
 	    elseif( $error == 'invalid_working_directory' )
 	    {
-	        echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/index').'">'.$view_helper->m62Lang('check_working_dir').'</a><br />';
+	        echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/general').'">'.$view_helper->m62Lang('check_working_dir').'</a><br />';
 	    }
 	    elseif( $error == 'no_db_backups_exist_yet' )
 	    {
@@ -51,5 +51,5 @@ if(count($errors) >= 1)
 	    echo '</li>';
 		//echo '</div>';
 	}
-	echo '</ul></div>';
+	echo '</ul><a class="close" href=""></a></div>';
 }

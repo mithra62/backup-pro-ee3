@@ -36,7 +36,7 @@
 
 <fieldset class="col-group required <?php echo ($form_errors['cron_notify_email_mailtype'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><label for="cron_notify_email_mailtype"><?php echo $view_helper->m62Lang('cron_notify_email_mailtype'); ?></label></h3>
+		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="cron_notify_email_mailtype"><?php echo $view_helper->m62Lang('cron_notify_email_mailtype'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('cron_notify_email_mailtype_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
@@ -47,7 +47,7 @@
 
 <fieldset class="col-group required <?php echo ($form_errors['cron_notify_email_subject'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><label for="cron_notify_email_subject"><?php echo $view_helper->m62Lang('cron_notify_email_subject'); ?></label></h3>
+		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="cron_notify_email_subject"><?php echo $view_helper->m62Lang('cron_notify_email_subject'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('cron_notify_email_subject_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
@@ -58,7 +58,7 @@
 
 <fieldset class="col-group required <?php echo ($form_errors['cron_notify_email_message'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><label for="cron_notify_email_message"><?php echo $view_helper->m62Lang('cron_notify_email_message'); ?></label></h3>
+		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="cron_notify_email_message"><?php echo $view_helper->m62Lang('cron_notify_email_message'); ?></label></h3>
 		<em style="display: none"><?php echo $view_helper->m62Lang('cron_notify_email_message_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">

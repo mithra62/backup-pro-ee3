@@ -7,7 +7,7 @@ if($settings['auto_threshold'] != '0')
 }
 ?>
 
-<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> <?php echo $view_helper->m62Lang('nav_dashboard'); ?></h1>
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('nav_dashboard'); ?></h1>
 <div class="tbl-wrap ">
 
 <?php 
@@ -71,7 +71,9 @@ $this->table->clear();
 			$this->load->view('_includes/_backup_table', $options);
 	?>
 	<?php else: ?>
-		<div class="no_backup_found"><?php echo $view_helper->m62Lang('no_backups_exist')?> <a href="<?php echo $nav_links['nav_backup_db']; ?>"><?php echo $view_helper->m62Lang('would_you_like_to_backup_database_now')?></a></div>
+		<div class="alert inline warn"><h3>Woops</h3>
+		  <ul><li><?php echo $view_helper->m62Lang('no_backups_exist')?> <a href="<?php echo $nav_links['nav_backup_db']; ?>"><?php echo $view_helper->m62Lang('would_you_like_to_backup_database_now')?></a></li></ul>
+		</div>
 	<?php endif; ?>
 </div>
 

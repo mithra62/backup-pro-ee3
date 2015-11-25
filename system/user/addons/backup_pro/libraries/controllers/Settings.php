@@ -51,13 +51,13 @@ trait BackupProSettingsController
             {
                 if( $this->services['settings']->update($data) )
                 {
-                    //ee()->session->set_flashdata('message_success', $this->services['lang']->__('settings_updated'));
-                ee('CP/Alert')->makeBanner('.box')
-     ->asSuccess()
-     ->withTitle('fdsafdsa')
-     ->addToBody('Test data gere')
-     ->defer();
-   
+                    /**
+                                    //ee()->session->set_flashdata('message_success', $this->services['lang']->__('settings_updated'));
+                     ee('CP/Alert')->makeInline('box')
+                     ->asSuccess()
+                     ->addToBody($this->services['lang']->__('settings_updated'))
+                     ->defer();
+                   */
                     ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
                 }
             }

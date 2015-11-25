@@ -1,8 +1,9 @@
 <div class="box">
 <?php $this->load->view('_includes/_errors'); ?>
 
-<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> <?php echo $view_helper->m62Lang('nav_backup_pro_settings'); ?></h1>
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('nav_backup_pro_settings'); ?></h1>
 <?php echo form_open('', array('id'=>'bp3_settings_form', 'class' => 'settings'))?>
+<?=ee('CP/Alert')->get('box')?>
 <input type="hidden" value="yes" name="go_settings" />
 <input type="hidden" value="<?php echo $section; ?>" name="section" />
 <?php 

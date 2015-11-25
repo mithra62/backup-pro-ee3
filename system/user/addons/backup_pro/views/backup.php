@@ -1,5 +1,9 @@
-<?php $this->load->view('_includes/_errors'); ?>
+<div class="box">
+<?php //$this->load->view('_includes/_errors'); ?>
 
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo ($backup_type == 'files' ? $view_helper->m62Lang('backup_files') : $view_helper->m62Lang('backup_db')); ?></h1>
+
+<div class="tbl-wrap ">
 <?php if( count($pre_backup_errors) == '0' ):?>
 
 <div id="backup_instructions">
@@ -17,7 +21,6 @@
 	</div>
 </div>
 
-<br clear="all" />
 
 <input type="hidden" id="__backup_proc_url" value="<?php echo $proc_url; ?>">
 <input type="hidden" id="__url_base" value="<?php echo $url_base; ?>">
@@ -34,26 +37,31 @@
 
 
     <?php else: ?>
-        <p><?php echo $view_helper->m62Lang('pre_backup_setting_issue_blurb'); ?>:</p>
+        <div class="txt-wrap">
+        <div class="alert inline issue"><h3>Uh-oh... There are some issues...</h3><ul>
         <?php 
         foreach($pre_backup_errors AS $key => $error): 
-            echo $view_helper->m62Lang($error);
+            echo '<li>'.$view_helper->m62Lang($error);
             if( $error == 'no_storage_locations_setup' )
             {
                 echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/new_storage').'">Setup Storage Location</a>';
             }
             elseif( $error == 'license_number' || $error == 'missing_license_number' )
             {
-                echo ' <a href="'.$url_base.'settings&section=license">Enter License</a> or <a href="https://mithra62.com/projects/view/backup-pro">Purchase a License</a>';
+                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/license').'">Enter License</a> or <a href="https://mithra62.com/projects/view/backup-pro">Purchase a License</a>';
             }
             elseif( $error == 'invalid_working_directory' )
             {
-                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/index').'">Check Working Directory</a>';
+                echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/general').'">Check Working Directory</a>';
             }
             elseif( $error == 'no_backup_file_location' )
             {
                 echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/files').'">Set File Backup Locations</a>';
             }
-            echo '<br />';
+            echo '</li>';
         endforeach;?>
+        </ul></div></div>
     <?php endif; ?>  
+    
+</div>  
+</div>
