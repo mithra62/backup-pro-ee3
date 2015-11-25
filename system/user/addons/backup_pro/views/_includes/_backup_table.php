@@ -5,8 +5,8 @@
 <?php endif; ?>
 
 <input type="hidden" value="<?php echo $note_url; ?>" name="__note_url" id="__note_url" />
-<div class="tbl-wrap box">
-<table width="100%" class="data existing_backups mainTable" id="mainTable" border="0" cellpadding="0" cellspacing="0">
+<div class="tbl-wrap">
+<table width="100%" class="data existing_backups " id="existing_backup_table" border="0" cellpadding="0" cellspacing="0">
 <thead>
 	<tr class="odd">
 		<th></th>
@@ -75,7 +75,7 @@
 	<td><?php echo $view_helper->m62Lang($backup['backup_type']); ?></td>
 	<?php endif; ?>
 	<td style="white-space: nowrap"><!-- <?php echo $backup['compressed_size']; ?> --><?php echo $view_helper->m62FileSize($backup['compressed_size']); ?></td>
-	<td style="white-space: nowrap"><!-- <?php echo $backup['time_taken']; ?> --><?php echo $view_helper->m62TimeFormat($backup['time_taken']); ?>s</td>
+	<td style="white-space: nowrap"><!-- <?php echo $backup['time_taken']; ?> --><?php echo $view_helper->m62TimeFormat($backup['time_taken']); ?></td>
 	<td style="white-space: nowrap"><!-- <?php echo $backup['max_memory']; ?> --><?php echo $view_helper->m62FileSize($backup['max_memory']); ?></td>
 		<?php if(isset($enable_actions) && $enable_actions == 'yes' ): ?>
 	<td align="right" style="width:40px; white-space: nowrap">

@@ -6,9 +6,10 @@ if($settings['auto_threshold'] != '0')
     $space_available_header .= ' ('.$available_space['available_percentage'].'%)';
 }
 ?>
-<br clear="all" />
 
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> <?php echo $view_helper->m62Lang('nav_dashboard'); ?></h1>
 <div class="tbl-wrap ">
+
 <?php 
 
 $this->table->set_heading(
@@ -63,7 +64,7 @@ $this->table->clear();
 		</div>
 </div>		
 <h2><?=$view_helper->m62Lang('recent_backups').' ('.count($backups).')';?></h2>
-<div id="backups">
+<div id="backups" class="tbl-ctrls">
 	<?php 
 		if(count($backups) > 0):
 			$options = array('enable_type' => 'yes', 'enable_editable_note' => 'yes', 'enable_actions' => 'yes', 'enable_delete' => 'no');

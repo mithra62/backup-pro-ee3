@@ -1,7 +1,9 @@
+<div class="box">
+
 <?php $this->load->view('_includes/_errors'); ?>
-<br clear="all" />
-<div class="clear_left shun"></div>
-<div>
+
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> <?php echo $view_helper->m62Lang('db_bp_dashboard_menu'); ?></h1>
+<div class="tbl-wrap ">
 <?php 
 $this->table->set_heading(
 	$view_helper->m62Lang('total_backups'), 
@@ -20,8 +22,7 @@ echo $this->table->generate();
 $this->table->clear();
 ?>
 </div>
-<div class="clear_left shun"></div>
-
+<div class="tbl-ctrls">
 <?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/delete_backup_confirm'), array('id'=>'backup_form')); ?>
 		<input type="hidden" name="type" id="hidden_backup_type" value="database" />	
 
@@ -41,10 +42,10 @@ if(count($backups['database']) > 0):
 </div>
 
 <?php if(count($backups['database']) != '0'): ?>
-<div class="tableFooter">
-	<div class="tableSubmit">
-		<?php echo form_submit(array('name' => 'submit', 'value' => $view_helper->m62Lang('delete_selected'), 'class' => 'btn', 'id' => 'submit_button'));?>
-	</div>
-</div>	
+		<fieldset class="tbl-bulk-act">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('delete_selected'); ?>">
+		</fieldset>
 <?php endif;?>
 <?php echo form_close()?>
+</div>
+</div>

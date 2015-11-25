@@ -88,6 +88,12 @@ trait BackupProManageController
     public function delete_backup_confirm()
     {
         $delete_backups = ee()->input->get_post('backups');
+        if( !$delete_backups )
+        {
+            ee()->session->set_flashdata('message_success', $this->services['lang']->__('backups_not_found'));
+            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
+        }
+        
         $type = ee()->input->get_post('type'); 
         $backups = $this->validateBackups($delete_backups, $type);
         $variables = array(
@@ -98,9 +104,7 @@ trait BackupProManageController
             'method' => ee()->input->get_post('method'),
             'errors' => $this->errors
         );
-    
-        //$template = 'backuppro/delete_confirm';
-    
+        
         ee()->view->cp_page_title = $this->services['lang']->__('dashboard');
         return ee()->load->view('delete_confirm', $variables, true);
     }
@@ -121,7 +125,7 @@ trait BackupProManageController
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('backup_delete_failure'));
-            ee()->functions->redirect($this->url_base.'index');
+            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
         }
     }
     
