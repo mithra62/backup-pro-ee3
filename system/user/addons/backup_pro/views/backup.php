@@ -3,7 +3,7 @@
 
 <h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo ($backup_type == 'files' ? $view_helper->m62Lang('backup_files') : $view_helper->m62Lang('backup_db')); ?></h1>
 
-<div class="tbl-wrap ">
+<div class="tbl-ctrls">
 <?php if( count($pre_backup_errors) == '0' ):?>
 
 <div id="backup_instructions">

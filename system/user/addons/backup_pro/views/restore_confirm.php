@@ -1,12 +1,14 @@
+<div class="box">
 <?php $this->load->view('_includes/_errors'); ?>
-<br clear="all" />
+<h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('restore_db'); ?></h1>
+<div class="tbl-ctrls ">
 
-<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/restore_database'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>	
-<h2><?php echo $view_helper->m62Lang('restore_db'); ?></h2>
+<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/restore_database'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>
 
 <p><?php echo $view_helper->m62Lang('restore_db_question'); ?></p>
 <p class="notice"><?php echo $view_helper->m62Lang('action_can_not_be_undone'); ?> <?php echo $view_helper->m62Lang('restore_double_speak'); ?></p>
 
+<?php echo ($backup['note'] != '' ? '<h2>'.$backup['note'].'</h2>' : ''); ?>
 <p>
 	<strong><?php echo $view_helper->m62Lang('taken'); ?>:</strong> <?php echo $view_helper->m62DateTime($backup['created_date']); ?> <br />
 	<strong><?php echo $view_helper->m62Lang('backup_type'); ?>:</strong> <?php echo $view_helper->m62Lang($backup['database_backup_type']); ?><br />
@@ -23,8 +25,9 @@
 	<strong><?php echo $view_helper->m62Lang('md5_hash'); ?>:</strong> <?php echo $backup['hash']; ?>
 </p>
 
-
-	<div class="buttons">
-		<input type="submit" value="<?php echo $view_helper->m62Lang('restore'); ?>" class="btn submit" >
-	</div>
+		<fieldset class="form-ctrls">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('restore'); ?>">
+		</fieldset>		
 <?php echo form_close()?>
+</div>
+</div>
