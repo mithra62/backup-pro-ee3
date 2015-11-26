@@ -22,7 +22,9 @@
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_status_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
-		<?php echo form_checkbox('storage_location_status', '1', $form_data['storage_location_status'], 'id="storage_location_status"'); ?>
+		<label class="choice mr <?php echo ($form_data['storage_location_status'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('storage_location_status', '1', $form_data['storage_location_status'], 'id="storage_location_status"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['storage_location_status']); ?>
 	</div>
 </fieldset>
@@ -33,7 +35,9 @@
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_file_use_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
-		<?php echo form_checkbox('storage_location_file_use', '1', $form_data['storage_location_file_use'], 'id="storage_location_file_use"'); ?>
+		<label class="choice mr <?php echo ($form_data['storage_location_file_use'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('storage_location_file_use', '1', $form_data['storage_location_file_use'], 'id="storage_location_file_use"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['storage_location_file_use']); ?>
 	</div>
 </fieldset>
@@ -44,7 +48,9 @@
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_db_use_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
-		<?php echo form_checkbox('storage_location_db_use', '1', $form_data['storage_location_db_use'], 'id="storage_location_db_use"'); ?>
+		<label class="choice mr <?php echo ($form_data['storage_location_db_use'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('storage_location_db_use', '1', $form_data['storage_location_db_use'], 'id="storage_location_db_use"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['storage_location_db_use']); ?>
 	</div>
 </fieldset>
@@ -55,7 +61,9 @@
 		<em style="display: none"><?php echo $view_helper->m62Lang('storage_location_include_prune_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="display: none">
-		<?php echo form_checkbox('storage_location_include_prune', '1', $form_data['storage_location_include_prune'], 'id="storage_location_include_prune"'); ?>
+		<label class="choice mr <?php echo ($form_data['storage_location_include_prune'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('storage_location_include_prune', '1', $form_data['storage_location_include_prune'], 'id="storage_location_include_prune"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['storage_location_include_prune']); ?>
 	</div>
 </fieldset>

@@ -63,7 +63,9 @@
 		<em><?php echo $view_helper->m62Lang('allow_duplicates_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 ">
-		<?php echo form_checkbox('allow_duplicates', '1', $form_data['allow_duplicates'], 'id="allow_duplicates"'); ?>
+		<label class="choice mr <?php echo ($form_data['allow_duplicates'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('allow_duplicates', '1', $form_data['allow_duplicates'], 'id="allow_duplicates"'); ?>
+	   </label>
 		<?php echo m62_form_errors($form_errors['allow_duplicates']); ?>
 	</div>
 </fieldset>		
@@ -85,7 +87,9 @@
 		<em><?php echo $view_helper->m62Lang('relative_time_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 ">
-		<?php echo form_checkbox('relative_time', '1', $form_data['relative_time'], 'id="relative_time"'); ?>
+		<label class="choice mr <?php echo ($form_data['relative_time'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('relative_time', '1', $form_data['relative_time'], 'id="relative_time"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['relative_time']); ?>
 	</div>
 </fieldset>

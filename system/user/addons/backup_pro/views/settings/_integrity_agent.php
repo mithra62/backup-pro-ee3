@@ -50,7 +50,9 @@ if(count($ia_cron_commands) >= 1)
 		<em><?php echo $view_helper->m62Lang('check_backup_state_cp_login_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 ">
-		<?php echo form_checkbox('check_backup_state_cp_login', '1', $form_data['check_backup_state_cp_login'], 'id="check_backup_state_cp_login"'); ?>
+		<label class="choice mr <?php echo ($form_data['check_backup_state_cp_login'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('check_backup_state_cp_login', '1', $form_data['check_backup_state_cp_login'], 'id="check_backup_state_cp_login"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['check_backup_state_cp_login']); ?>
 	</div>
 </fieldset>

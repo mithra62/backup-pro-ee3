@@ -198,13 +198,13 @@ trait BackupProStorageController
         if( count($this->settings['storage_details']) <= 1 )
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('min_storage_location_needs'));
-            ee()->functions->redirect($this->url_base.'view_storage');
+            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/view_storage'));
         }
     
         if( empty($this->settings['storage_details'][$storage_id]) )
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('invalid_storage_id'));
-            ee()->functions->redirect($this->url_base.'view_storage');
+            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/view_storage'));
         }
     
         $storage_details = $this->settings['storage_details'][$storage_id];
@@ -230,7 +230,7 @@ trait BackupProStorageController
             if( $this->services['backup']->getStorage()->getLocations()->setSetting($this->services['settings'])->remove($storage_id, $data, $backups) )
             {
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('storage_location_removed'));
-                ee()->functions->redirect($this->url_base.'view_storage');
+                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/view_storage'));
             }
             else
             {

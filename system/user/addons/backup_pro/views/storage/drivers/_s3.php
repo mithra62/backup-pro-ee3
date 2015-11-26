@@ -50,7 +50,9 @@
 		<em><?php echo $view_helper->m62Lang('s3_reduced_redundancy_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8">
-		<?php echo form_checkbox('s3_reduced_redundancy', '1', $form_data['s3_reduced_redundancy'], 'id="s3_reduced_redundancy"'); ?>
+		<label class="choice mr <?php echo ($form_data['s3_reduced_redundancy'] == '1' ? 'chosen' : ''); ?>">
+		  <?php echo form_checkbox('s3_reduced_redundancy', '1', $form_data['s3_reduced_redundancy'], 'id="s3_reduced_redundancy"'); ?>
+		</label>
 		<?php echo m62_form_errors($form_errors['s3_reduced_redundancy']); ?>
 	</div>
 </fieldset>
