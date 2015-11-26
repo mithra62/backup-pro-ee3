@@ -26,7 +26,7 @@
 </p>
 
 		<fieldset class="form-ctrls">
-			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('restore'); ?>">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('restore_db'); ?>">
 		</fieldset>		
 <?php echo form_close()?>
 </div>

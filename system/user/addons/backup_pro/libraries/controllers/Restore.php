@@ -42,7 +42,7 @@ trait BackupProRestoreController
             'heading' => $this->services['lang']->__('restore_db'),
             'breadcrumb' => array(
                 ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
-                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => lang('db_backups'),
+                ee('CP/URL', 'addons/settings/backup_pro/settings/general')->compile() => $this->services['lang']->__('database_backups'),
             )
         );        
     }

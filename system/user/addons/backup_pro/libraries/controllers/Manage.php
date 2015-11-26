@@ -60,7 +60,7 @@ trait BackupProManageController
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('db_backup_not_found'));
-            ee()->functions->redirect($this->url_base.'index');
+            ee()->functions->redirect( ee('CP/URL', 'addons/settings/backup_pro/index') );
         }
     }
     
