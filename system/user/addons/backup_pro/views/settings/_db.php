@@ -50,6 +50,17 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 </fieldset>	
 
+<fieldset class="col-group required <?php echo ($form_errors['php_backup_method_select_chunk_limit'] ? 'invalid' : ''); ?>" id="php_backup_method_select_chunk_limit_wrap" style="display:none;">
+	<div class="setting-txt col w-8">
+		<h3><label for="max_db_backups"><?php echo $view_helper->m62Lang('php_backup_method_select_chunk_limit'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('php_backup_method_select_chunk_limit_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('php_backup_method_select_chunk_limit', $form_data['php_backup_method_select_chunk_limit'], 'id="php_backup_method_select_chunk_limit"'); ?>
+		<?php echo m62_form_errors($form_errors['php_backup_method_select_chunk_limit']); ?>
+	</div>
+</fieldset>
+
 <fieldset class="col-group required <?php echo ($form_errors['db_restore_method'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="db_restore_method"><?php echo $view_helper->m62Lang('db_restore_method'); ?></label></h3>
