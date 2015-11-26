@@ -105,8 +105,27 @@ trait BackupProManageController
             'errors' => $this->errors
         );
         
-        ee()->view->cp_page_title = $this->services['lang']->__('dashboard');
-        return ee()->load->view('delete_confirm', $variables, true);
+        $breadcrumbs = array(
+            ee('CP/URL', 'addons/settings/backup_pro')->compile() => lang('backup_pro_module_name'),
+            ee('CP/URL', 'addons/settings/backup_pro/index')->compile() => lang('home_bp_dashboard_menu')
+        );
+        
+        if( $type == 'files' )
+        {
+            $breadcrumbs[ee('CP/URL', 'addons/settings/backup_pro/file_backups')->compile()] = $this->services['lang']->__('file_backups');
+        }
+        else
+        {
+            $breadcrumbs[ee('CP/URL', 'addons/settings/backup_pro/db_backups')->compile()] = $this->services['lang']->__('database_backups');
+        }
+        
+        
+        
+        return array(
+            'body' => ee()->load->view('delete_confirm', $variables, true),
+            'heading' => $this->services['lang']->__('delete_backup'),
+            'breadcrumb' => $breadcrumbs
+        );
     }
     
     /**
