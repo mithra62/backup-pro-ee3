@@ -1,27 +1,18 @@
 <div class="box">
-<?php //$this->load->view('_includes/_errors'); ?>
 
 <h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo ($backup_type == 'files' ? $view_helper->m62Lang('backup_files') : $view_helper->m62Lang('backup_db')); ?></h1>
 
 <div class="tbl-ctrls">
 <?php if( count($pre_backup_errors) == '0' ):?>
-
+<?php echo form_open($proc_url, array('id'=>'backup_form')); ?>
 <div id="backup_instructions">
 <?php echo $lang->__('backup_in_progress_instructions'); ?><br />
 </div>
-<div class="bp_top_nav" id="_backup_start_container">
-	<div class="bp_nav">
-		<span class="button"> 
-			<a class="btn" href="<?php echo $proc_url; ?>" id="_backup_direct"><?php echo $view_helper->m62Lang('start_backup'); ?></a>
-        	<div id="backup_running_details"  style="display:none" >
-        	<?php echo $view_helper->m62Lang('backup_in_progress'); ?>
-        	<img src="<?php echo $theme_folder_url; ?>backup_pro/images/indicator.gif" id="animated_image" />
-        	</div>			
-		</span>	
-	</div>
-</div>
 
-
+		<fieldset class="form-ctrls">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('start_backup'); ?>">
+		</fieldset>	
+		
 <input type="hidden" id="__backup_proc_url" value="<?php echo $proc_url; ?>">
 <input type="hidden" id="__url_base" value="<?php echo $url_base; ?>">
 <input type="hidden" id="__backup_type" value="<?php echo $backup_type; ?>">
@@ -61,6 +52,7 @@
             echo '</li>';
         endforeach;?>
         </ul></div></div>
+        <?php echo form_close()?>
     <?php endif; ?>  
     
 </div>  
