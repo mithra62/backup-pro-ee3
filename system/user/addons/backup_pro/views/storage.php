@@ -3,7 +3,6 @@
 
 <h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('storage_bp_settings_menu'); ?></h1>
 
-<?php $this->load->view('storage/_submenu')?>
 <?php 
 
 $tmpl = array (
@@ -27,7 +26,8 @@ $this->table->set_empty("&nbsp;");
 $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_helper->m62Lang('type'), $view_helper->m62Lang('status'), $view_helper->m62Lang('created_date'), '');
 
 	if(count($storage_details) > 0):
-	
+        echo '<div id="backups" class="tbl-ctrls">';
+        echo $this->load->view('storage/_submenu');
     	foreach($storage_details AS $key => $storage): 
     	   $row = array(
     	       '<a href="'.ee('CP/URL', 'addons/settings/backup_pro/edit_storage/'.$key).'">'.$storage['storage_location_name'].'</a>',
@@ -40,9 +40,14 @@ $this->table->set_heading($view_helper->m62Lang('storage_location_name'), $view_
     	endforeach;
     	
     	echo $this->table->generate();
-    	$this->table->clear();    	
+    	$this->table->clear(); 
+    	echo '</div>';
 ?>
-<?php else: ?><br clear="all" />
+<?php else: 
+
+    echo $this->load->view('storage/_submenu');
+    
+?><br clear="all" />
 <div id="backups" class="tbl-ctrls">
 	<div class="alert inline warn"><h3>Woops</h3>
         <ul><li><?php echo $view_helper->m62Lang('no_storage_locations_created_yet')?></a></li></ul>
