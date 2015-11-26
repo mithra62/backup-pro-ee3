@@ -8,7 +8,7 @@ if($settings['auto_threshold'] != '0')
 ?>
 
 <h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('nav_dashboard'); ?></h1>
-<div class="tbl-wrap ">
+<div class="tbl-wrap tbl-ctrls">
 
 <?php 
 
@@ -33,7 +33,7 @@ $this->table->clear();
 </div>
 
 <?php echo form_open($query_base, array('id'=>'my_accordion')); ?>
-<div class="col-group">
+<div class="col-group tbl-ctrls">
 <div class="col w-8">
 
 

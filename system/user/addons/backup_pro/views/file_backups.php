@@ -2,7 +2,7 @@
 <?php $this->load->view('_includes/_errors'); ?>
 
 <h1><?php echo $view_helper->m62Lang('backup_pro_module_name'); ?> / <?php echo $view_helper->m62Lang('files_bp_dashboard_menu'); ?></h1>
-<div class="tbl-wrap ">
+<div class="tbl-wrap tbl-ctrls">
 <?php 
 $this->table->set_heading(
 	$view_helper->m62Lang('total_backups'), 

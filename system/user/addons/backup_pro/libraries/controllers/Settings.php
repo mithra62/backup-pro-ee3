@@ -33,7 +33,7 @@ trait BackupProSettingsController
         $variables['form_data']['db_backup_execute_pre_sql'] = implode("\n", $this->settings['db_backup_execute_pre_sql']);
         $variables['form_data']['db_backup_execute_post_sql'] = implode("\n", $this->settings['db_backup_execute_post_sql']);
         $variables['form_data']['backup_missed_schedule_notify_emails'] = implode("\n", $this->settings['backup_missed_schedule_notify_emails']);
-        
+        $variables['form_has_errors'] = false;
         if( ee()->input->server('REQUEST_METHOD') == 'POST' )
         {
             $data = array();
@@ -63,6 +63,7 @@ trait BackupProSettingsController
             }
             else
             {
+                $variables['form_has_errors'] = true;
                 $variables['form_errors'] = array_merge($variables['form_errors'], $settings_errors);
             }
         }
