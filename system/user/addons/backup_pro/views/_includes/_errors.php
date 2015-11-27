@@ -13,7 +13,7 @@ if(count($errors) >= 1)
 		}
 		elseif( $key == 'license_number' )
 		{
-		    echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/license').'">'.$view_helper->m62Lang('enter_license').'</a> or <a href="https://mithra62.com/projects/view/backup-pro">'.$view_helper->m62Lang('purchase_a_license').'</a><br />';
+		    echo ' <a href="'.ee('CP/URL', 'addons/settings/backup_pro/settings/license').'">'.$view_helper->m62Lang('enter_license').'</a> or <a href="'.ee()->cp->masked_url('https://mithra62.com/projects/view/backup-pro').'">'.$view_helper->m62Lang('purchase_a_license').'</a><br />';
 		}
 	    elseif( $error == 'invalid_working_directory' )
 	    {

@@ -7,8 +7,8 @@
 $this->table->set_heading(
 	$view_helper->m62Lang('total_backups'), 
 	$view_helper->m62Lang('total_space_used'), 
-	array('data' => $view_helper->m62Lang('last_backup_taken'), 'align' => 'right'), 
-	array('data' => $view_helper->m62Lang('first_backup_taken'), 'align' => 'right')
+	array('data' => '<div style="float:right">'.$view_helper->m62Lang('last_backup_taken').'</div>', 'align' => 'right'), 
+	array('data' => '<div style="float:right">'.$view_helper->m62Lang('first_backup_taken').'</div>', 'align' => 'right')
 );
 $data = array(
 	array('data' => $backup_meta['files']['total_backups'], 'width' => 80), 
