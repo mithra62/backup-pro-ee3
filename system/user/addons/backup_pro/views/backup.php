@@ -29,7 +29,7 @@
 
     <?php else: ?>
         <div class="txt-wrap">
-        <div class="alert inline issue"><h3>Uh-oh... There are some issues...</h3><ul>
+        <div class="alert inline issue"><h3><?php echo $view_helper->m62Lang('pre_backup_setting_issue_blurb'); ?>:</h3><ul>
         <?php 
         foreach($pre_backup_errors AS $key => $error): 
             echo '<li>'.$view_helper->m62Lang($error);

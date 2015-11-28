@@ -87,10 +87,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_ignore_tables'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_ignore_tables"><?php echo $view_helper->m62Lang('db_backup_ignore_tables'); ?></label></h3>
-		<em style="display: none"><?php echo $view_helper->m62Lang('db_backup_ignore_tables_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_ignore_tables"><?php echo $view_helper->m62Lang('db_backup_ignore_tables'); ?></label></h3>
+		<em style=""><?php echo $view_helper->m62Lang('db_backup_ignore_tables_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none">
+	<div class="setting-field col w-8 last" style="">
 		<?php echo form_multiselect('db_backup_ignore_tables[]', $db_tables, $form_data['db_backup_ignore_tables'], 'id="db_backup_ignore_tables" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_tables').'"') ?>
 		<?php echo m62_form_errors($form_errors['db_backup_ignore_tables']); ?>
 	</div>
@@ -99,10 +99,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_ignore_table_data'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_ignore_table_data'); ?></label></h3>
-		<em style="display: none"><?php echo $view_helper->m62Lang('db_backup_ignore_table_data_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_ignore_table_data'); ?></label></h3>
+		<em style=""><?php echo $view_helper->m62Lang('db_backup_ignore_table_data_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none">
+	<div class="setting-field col w-8 last" style="">
 		<?php echo form_multiselect('db_backup_ignore_table_data[]', $db_tables, $form_data['db_backup_ignore_table_data'], 'id="db_backup_ignore_table_data" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_table_data').'"'); ?>
 		<?php echo m62_form_errors($form_errors['db_backup_ignore_table_data']); ?>
 	</div>
@@ -112,10 +112,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 <h2><?=$view_helper->m62Lang('config_extra_archive_sql')?></h2>
 <fieldset class="col-group <?php echo ($form_errors['db_backup_archive_pre_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_archive_pre_sql"><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql'); ?></label></h3>
-		<em style="display: none" ><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_archive_pre_sql"><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql'); ?></label></h3>
+		<em style="" ><?php echo $view_helper->m62Lang('db_backup_archive_pre_sql_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none" >
+	<div class="setting-field col w-8 last" style="" >
 		<?php echo form_textarea('db_backup_archive_pre_sql', $form_data['db_backup_archive_pre_sql'], 'cols="90" rows="6" id="db_backup_archive_pre_sql"'); ?>
 		<?php echo m62_form_errors($form_errors['db_backup_archive_pre_sql']); ?>
 	</div>
@@ -123,10 +123,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_archive_post_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
-		<em style="display: none"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
+		<em style=""><?php echo $view_helper->m62Lang('db_backup_archive_post_sql_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none">
+	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_archive_post_sql', $form_data['db_backup_archive_post_sql'], 'cols="90" rows="6" id="db_backup_archive_post_sql"'); ?>
 		<?php echo m62_form_errors($form_errors['db_backup_archive_post_sql']); ?>
 	</div>
@@ -136,10 +136,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_execute_pre_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_execute_pre_sql"><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql'); ?></label></h3>
-		<em style="display: none"><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_execute_pre_sql"><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql'); ?></label></h3>
+		<em style=""><?php echo $view_helper->m62Lang('db_backup_execute_pre_sql_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none">
+	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_execute_pre_sql', $form_data['db_backup_execute_pre_sql'], 'cols="90" rows="6" id="db_backup_execute_pre_sql"'); ?>
 		<?php echo m62_form_errors($form_errors['db_backup_execute_pre_sql']); ?>
 	</div>
@@ -147,10 +147,10 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_execute_post_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class="field-closed"><span class="ico sub-arrow"></span><label for="db_backup_execute_post_sql"><?php echo $view_helper->m62Lang('db_backup_execute_post_sql'); ?></label></h3>
-		<em style="display: none"><?php echo $view_helper->m62Lang('db_backup_execute_post_sql_instructions'); ?></em>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_execute_post_sql"><?php echo $view_helper->m62Lang('db_backup_execute_post_sql'); ?></label></h3>
+		<em style=""><?php echo $view_helper->m62Lang('db_backup_execute_post_sql_instructions'); ?></em>
 	</div>
-	<div class="setting-field col w-8 last" style="display: none">
+	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_execute_post_sql', $form_data['db_backup_execute_post_sql'], 'cols="90" rows="6" id="db_backup_execute_post_sql"'); ?>
 		<?php echo m62_form_errors($form_errors['db_backup_execute_post_sql']); ?>
 	</div>
