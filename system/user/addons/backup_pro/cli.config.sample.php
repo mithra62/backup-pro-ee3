@@ -8,8 +8,7 @@
  * @filesource 	./cli.config.sample.php
  */
 
-//set your system path
-$settings = array(
+return array(
     'site_url' => '',
     'site_name' => '',
     'timezone' => '',
@@ -24,7 +23,7 @@ $settings = array(
     'email' => array(
         'from_email' => '',
         'sender_name' => '',
-        'type' => 'smtp', //choose between `php` and `smtp`
+        'type' => 'php', //choose between `php` and `smtp`
         'smtp_options' => array( //if `smtp` chosen above, this must be completed and accurate
             'host' => '',
             'connection_config' => array(

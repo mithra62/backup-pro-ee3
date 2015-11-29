@@ -11,7 +11,7 @@
 
 require_once PATH_THIRD.'backup_pro/vendor/autoload.php';
 
-use mithra62\BackupPro\Platforms\Controllers\Eecms;
+use mithra62\BackupPro\Platforms\Controllers\Ee3;
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include PATH_THIRD.'backup_pro/config.php';
@@ -27,7 +27,7 @@ require_once PATH_THIRD.'backup_pro/libraries/controllers/Cron.php';
  * @author		Eric Lamb
  * @filesource 	./system/expressionengine/third_party/backup_pro/mod.backup_pro.php
  */
-class Backup_pro extends Eecms
+class Backup_pro extends Ee3
 {
     use BackupProCronController;
     
