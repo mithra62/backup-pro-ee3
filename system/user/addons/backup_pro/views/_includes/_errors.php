@@ -1,7 +1,7 @@
 <?php
 if(count($errors) >= 1)
 {
-	echo '<div class="alert issue"><h3>Uh-oh... There are some issues...</h3><ul>';
+	echo '<div class="alert issue"><h3>'.$view_helper->m62Lang('uh_oh_there_are_issues').'</h3><ul>';
 	foreach($errors AS $key => $error)
 	{
 		echo '<li>';
