@@ -123,7 +123,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 
 <fieldset class="col-group <?php echo ($form_errors['db_backup_archive_post_sql'] ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
-		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_ignore_table_data"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
+		<h3 class=""><span class="ico sub-arrow"></span><label for="db_backup_archive_post_sql"><?php echo $view_helper->m62Lang('db_backup_archive_post_sql'); ?></label></h3>
 		<em style=""><?php echo $view_helper->m62Lang('db_backup_archive_post_sql_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="">
