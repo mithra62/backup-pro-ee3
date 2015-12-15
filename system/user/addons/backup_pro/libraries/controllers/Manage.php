@@ -24,8 +24,8 @@ trait BackupProManageController
     public function download()
     {
         $encrypt = $this->services['encrypt'];
-        $file_name = $encrypt->decode(ee()->input->get_post('id'));
-        $type = ee()->input->get_post('type');
+        $file_name = $encrypt->decode($this->platform->getPost('id'));
+        $type = $this->platform->getPost('type');
         $storage = $this->services['backup']->setStoragePath($this->settings['working_directory']);
         if($type == 'files')
         {
@@ -60,7 +60,7 @@ trait BackupProManageController
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('db_backup_not_found'));
-            ee()->functions->redirect( ee('CP/URL', 'addons/settings/backup_pro/index') );
+            $this->platform->redirect( ee('CP/URL', 'addons/settings/backup_pro/index') );
         }
     }
     
@@ -70,9 +70,9 @@ trait BackupProManageController
     public function update_backup_note()
     {
         $encrypt = $this->services['encrypt'];
-        $file_name = $encrypt->decode(ee()->input->get_post('backup'));
-        $backup_type = ee()->input->get_post('backup_type'); 
-        $note_text = ee()->input->get_post('note_text'); 
+        $file_name = $encrypt->decode($this->platform->getPost('backup'));
+        $backup_type = $this->platform->getPost('backup_type'); 
+        $note_text = $this->platform->getPost('note_text'); 
         if($note_text && $file_name)
         {
             $path = rtrim($this->settings['working_directory'], DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR.$backup_type;
@@ -87,21 +87,21 @@ trait BackupProManageController
      */
     public function delete_backup_confirm()
     {
-        $delete_backups = ee()->input->get_post('backups');
+        $delete_backups = $this->platform->getPost('backups');
         if( !$delete_backups )
         {
             ee()->session->set_flashdata('message_success', $this->services['lang']->__('backups_not_found'));
-            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
+            $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
         }
         
-        $type = ee()->input->get_post('type'); 
+        $type = $this->platform->getPost('type'); 
         $backups = $this->validateBackups($delete_backups, $type);
         $variables = array(
             'settings' => $this->settings,
             'backups' => $backups,
             'backup_type' => $type,
             'menu_data' => ee()->backup_pro->get_dashboard_view_menu(),
-            'method' => ee()->input->get_post('method'),
+            'method' => $this->platform->getPost('method'),
             'errors' => $this->errors
         );
         
@@ -133,18 +133,18 @@ trait BackupProManageController
      */
     public function delete_backups()
     {
-        $delete_backups = ee()->input->get_post('backups');
-        $type = ee()->input->get_post('type'); 
+        $delete_backups = $this->platform->getPost('backups');
+        $type = $this->platform->getPost('type'); 
         $backups = $this->validateBackups($delete_backups, $type);
         if( $this->services['backups']->setBackupPath($this->settings['working_directory'])->removeBackups($backups) )
         {
             ee()->session->set_flashdata('message_success', $this->services['lang']->__('backups_deleted'));
-            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
+            $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
         }
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('backup_delete_failure'));
-            ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
+            $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro'));
         }
     }
     
@@ -159,7 +159,7 @@ trait BackupProManageController
         if(!$delete_backups || count($delete_backups) == 0)
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('backups_not_found'));
-            ee()->functions->redirect($this->url_base.'index');
+            $this->platform->redirect($this->url_base.'index');
         }
     
         $encrypt = $this->services['encrypt'];
@@ -182,7 +182,7 @@ trait BackupProManageController
         if(count($backups) == 0)
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('backups_not_found'));
-            ee()->functions->redirect($this->url_base.'index');
+            $this->platform->redirect($this->url_base.'index');
         }
     
         return $backups;

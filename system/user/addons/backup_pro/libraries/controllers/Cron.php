@@ -28,7 +28,7 @@ trait BackupProCronController
     */
     public function cron()
     {
-        if( ee()->input->get_post('backup_pro') != $this->settings['cron_query_key'] )
+        if( $this->platform->getPost('backup_pro') != $this->settings['cron_query_key'] )
         {
             exit;
         }
@@ -43,7 +43,7 @@ trait BackupProCronController
             ini_set('memory_limit', -1);
             set_time_limit(0);
     
-            $backup_type = ee()->input->get_post('type');
+            $backup_type = $this->platform->getPost('type');
             $backup_paths = array();
             switch($backup_type)
             {
@@ -92,7 +92,7 @@ trait BackupProCronController
      */
     public function integrity()
     {
-        if( ee()->input->get_post('backup_pro') != $this->settings['cron_query_key'] )
+        if( $this->platform->getPost('backup_pro') != $this->settings['cron_query_key'] )
         {
             exit;
         }

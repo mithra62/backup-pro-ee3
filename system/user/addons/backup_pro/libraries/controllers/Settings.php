@@ -23,7 +23,6 @@ trait BackupProSettingsController
      */
     public function settings($section = 'index')
     {
-        //$section = ( ee()->input->get_post('section') != '' ? ee()->input->get_post('section') : 'general' );
         $variables = array('form_data' => $this->settings, 'form_errors' => $this->returnEmpty($this->settings));
         $variables['form_data']['cron_notify_emails'] = implode("\n", $this->settings['cron_notify_emails']);
         $variables['form_data']['exclude_paths'] = implode("\n", $this->settings['exclude_paths']);
@@ -58,7 +57,7 @@ trait BackupProSettingsController
                      ->addToBody($this->services['lang']->__('settings_updated'))
                      ->defer();
                    */
-                    ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
+                    $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
                 }
             }
             else

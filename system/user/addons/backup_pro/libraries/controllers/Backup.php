@@ -52,13 +52,13 @@ trait BackupProBackupController
                                      ->duplicates($this->settings['allow_duplicates']);
                 
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('backup_progress_bar_stop'));
-                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
+                $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
             }
         }
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__($error->getError()));
-            ee()->functions->redirect($this->url_base.'db_backups');
+            $this->platform->redirect($this->url_base.'db_backups');
         }
     
         exit;
@@ -93,7 +93,7 @@ trait BackupProBackupController
                                      ->duplicates($this->settings['allow_duplicates']);
                 
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('backup_progress_bar_stop'));
-                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/file_backups'));
+                $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/file_backups'));
                 exit;
             }
         }
@@ -106,7 +106,7 @@ trait BackupProBackupController
             }
             
             ee()->session->set_flashdata('message_error', $this->services['lang']->__($error->getError()));
-            ee()->functions->redirect($url);
+            $this->platform->redirect($url);
         }
     }    
     
@@ -114,8 +114,6 @@ trait BackupProBackupController
 
     public function backup($type)
     {
-        //$type = ee()->input->get_post('type', TRUE);
-        ee()->view->cp_page_title = $this->services['lang']->__('backup_'.$type);
         $proc_url = FALSE;
         $backup = $this->services['backup']->setStoragePath($this->settings['working_directory']);
         switch($type)
@@ -138,13 +136,9 @@ trait BackupProBackupController
         if(!$proc_url)
         {
             ee()->session->set_flashdata('message_failure', $this->services['lang']->__('can_not_backup'));
-            ee()->functions->redirect($this->url_base.'index');
+            $this->platform->redirect($this->url_base.'index');
             exit;
         }
-    
-        //ee()->cp->add_js_script('ui', 'progressbar');
-        //ee()->javascript->output('$("#progressbar").progressbar({ value: 0 });');
-        //ee()->javascript->compile();
     
         $vars = array('proc_url' => $proc_url);
         $vars['errors'] = $this->errors;

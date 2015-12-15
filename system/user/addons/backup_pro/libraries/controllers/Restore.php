@@ -24,7 +24,7 @@ trait BackupProRestoreController
     public function restore_confirm()
     {
         $encrypt = $this->services['encrypt'];
-        $file_name = $encrypt->decode(ee()->input->get_post('id'));
+        $file_name = $encrypt->decode($this->platform->getPost('id'));
         $storage = $this->services['backup']->setStoragePath($this->settings['working_directory']);
     
         $file = $storage->getStorage()->getDbBackupNamePath($file_name);
@@ -34,7 +34,7 @@ trait BackupProRestoreController
             'backup' => $backup_info,
             'errors' => $this->errors,
             'menu_data' => ee()->backup_pro->get_dashboard_view_menu(),
-            'method' => ee()->input->get_post('method'),
+            'method' => $this->platform->getPost('method'),
         );
     
         return array(
@@ -53,7 +53,7 @@ trait BackupProRestoreController
     public function restore_database()
     {
         $encrypt = $this->services['encrypt'];
-        $file_name = $encrypt->decode(ee()->input->get_post('id'));
+        $file_name = $encrypt->decode($this->platform->getPost('id'));
         $storage = $this->services['backup']->setStoragePath($this->settings['working_directory']);
     
         $file = $storage->getStorage()->getDbBackupNamePath($file_name);
@@ -74,13 +74,13 @@ trait BackupProRestoreController
             if( $this->services['restore']->setDbInfo($db_info)->setBackupInfo($backup_info)->database($db_info['database'], $restore_file_path, $this->settings, $this->services['shell']) )
             {
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('database_restored'));
-                ee()->functions->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
+                $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
             }
         }
         else
         {
             ee()->session->set_flashdata('message_error', $this->services['lang']->__('db_backup_not_found'));
-            ee()->functions->redirect($this->url_base.'db_backups');
+            $this->platform->redirect($this->url_base.'db_backups');
         }
     }
 }
