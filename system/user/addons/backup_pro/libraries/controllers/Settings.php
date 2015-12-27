@@ -20,6 +20,7 @@ trait BackupProSettingsController
 {
     /**
      * The Settings Control Panel page
+     * @return array
      */
     public function settings($section = 'index')
     {
@@ -50,13 +51,6 @@ trait BackupProSettingsController
             {
                 if( $this->services['settings']->update($data) )
                 {
-                    /**
-                                    //ee()->session->set_flashdata('message_success', $this->services['lang']->__('settings_updated'));
-                     ee('CP/Alert')->makeInline('box')
-                     ->asSuccess()
-                     ->addToBody($this->services['lang']->__('settings_updated'))
-                     ->defer();
-                   */
                     $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/settings/'.$section));
                 }
             }
