@@ -35,6 +35,8 @@ trait BackupProRestoreController
             'errors' => $this->errors,
             'menu_data' => ee()->backup_pro->get_dashboard_view_menu(),
             'method' => $this->platform->getPost('method'),
+            'form_errors' => array('enable_automated_restore' => ''),
+            'form_data' => array('enable_automated_restore' => '')
         );
     
         return array(

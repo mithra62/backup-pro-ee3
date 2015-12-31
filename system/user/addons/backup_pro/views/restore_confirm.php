@@ -49,3 +49,29 @@
 <?php echo form_close()?>
 </div>
 </div>
+
+<div class="box">
+
+<div class="tbl-ctrls ">
+<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/restore_database'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>
+
+        <p><?php echo $view_helper->m62Lang('automated_restore_db_question'); ?></p>
+        
+        <fieldset class="col-group <?php echo ($form_errors['enable_automated_restore'] ? 'invalid' : ''); ?>">
+        	<div class="setting-txt col w-8">
+        		<h3><label for="enable_automated_restore"><?php echo $view_helper->m62Lang('enable_automated_restore'); ?></label></h3>
+        	</div>
+        	<div class="setting-field col w-8 ">
+        		<label class="choice mr <?php echo ($form_data['enable_automated_restore'] == '1' ? 'chosen' : ''); ?>">
+        		  <?php echo form_checkbox('enable_automated_restore', '1', '0', 'id="enable_automated_restore"'); ?>
+        		</label>
+        		<?php echo m62_form_errors($form_errors['enable_automated_restore']); ?>
+        	</div>
+        </fieldset>
+
+	<fieldset class="form-ctrls">
+		<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('enable_automated_restore'); ?>">
+	</fieldset>		
+<?php echo form_close()?>
+</div>
+</div>
