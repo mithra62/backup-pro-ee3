@@ -53,7 +53,7 @@
 <div class="box">
 
 <div class="tbl-ctrls ">
-<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/restore_database'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>
+<?php echo form_open(ee('CP/URL', 'addons/settings/backup_pro/enable_auto_restore'.AMP.'id='.urlencode($view_helper->m62Encode($backup['details_file_name']))), array('id'=>'backup_form')); ?>
 
         <p><?php echo $view_helper->m62Lang('automated_restore_db_question'); ?></p>
         

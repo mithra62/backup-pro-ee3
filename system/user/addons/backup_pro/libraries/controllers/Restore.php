@@ -49,6 +49,31 @@ trait BackupProRestoreController
         );        
     }
     
+    public function enable_auto_restore()
+    {
+        $enable_automated_restore = $this->platform->getPost('enable_automated_restore', '0');
+        $encrypt = $this->services['encrypt'];
+        $file_name = $encrypt->decode($this->platform->getPost('id'));   
+        if( !$file_name )
+        {
+            $this->platform->redirect(ee('CP/URL')->make('addons/settings/backup_pro', array('file_fail' => 'yes')));
+        }
+        
+        $storage = $this->services['backup']->setStoragePath($this->settings['working_directory']);
+    
+        echo $file = $storage->getStorage()->getDbBackupNamePath($file_name);
+        $backup_info = $this->services['backups']->setLocations($this->settings['storage_details'])->getBackupData($file);
+        exit;
+        if( !file_exists($file) )
+        {
+            $this->platform->redirect(ee('CP/URL')->make('addons/settings/backup_pro', array('file_fail' => 'yes')));
+        }
+        
+        echo 'f';
+        exit;
+        exit;
+    }
+    
     /**
      * Restore database action
      */
@@ -56,10 +81,11 @@ trait BackupProRestoreController
     {
         $encrypt = $this->services['encrypt'];
         $file_name = $encrypt->decode($this->platform->getPost('id'));
-        $storage = $this->services['backup']->setStoragePath($this->settings['working_directory']);
-    
-        $file = $storage->getStorage()->getDbBackupNamePath($file_name);
+        $file = $this->getDbBackupMetaName($file_name);
         $backup_info = $this->services['backups']->setLocations($this->settings['storage_details'])->getBackupData($file);
+        
+        print_r($file);
+        exit;
         $restore_file_path = false;
         foreach($backup_info['storage_locations'] AS $storage_location)
         {
