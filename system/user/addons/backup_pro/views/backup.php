@@ -10,7 +10,7 @@
 </div>
 
 		<fieldset class="form-ctrls">
-			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('start_backup'); ?>">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('start_backup'); ?>" id="_backup_direct">
 		</fieldset>	
 		
 <input type="hidden" id="__backup_proc_url" value="<?php echo $proc_url; ?>">

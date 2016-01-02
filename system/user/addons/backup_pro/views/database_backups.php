@@ -45,7 +45,7 @@ if(count($backups['database']) > 0):
 
 <?php if(count($backups['database']) != '0'): ?>
 		<fieldset class="tbl-bulk-act">
-			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('delete_selected'); ?>">
+			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('delete_selected'); ?>" name="_remove_backup_button" id="_remove_backup_button">
 		</fieldset>
 <?php endif;?>
 <?php echo form_close()?>

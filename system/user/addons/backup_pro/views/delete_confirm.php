@@ -17,7 +17,7 @@
             	?>
             	
             		<fieldset class="tbl-bulk-act">
-            			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('delete'); ?>">
+            			<input class="btn submit" type="submit" value="<?php echo $view_helper->m62Lang('delete'); ?>" name="_remove_backup_button" id="_remove_backup_button">
             		</fieldset>		
             
             <?php echo form_close()?>

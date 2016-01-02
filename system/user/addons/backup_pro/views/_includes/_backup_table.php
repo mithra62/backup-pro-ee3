@@ -29,7 +29,7 @@
 	</tr>
 </thead>
 <tbody>
-<?php foreach($backups AS $backup): 
+<?php $count = 0; foreach($backups AS $backup): 
 
 	if($backup['verified'] == '0')
 	{
@@ -50,7 +50,7 @@
 <tr class="odd">
 	<td class="  "><span class="<?php echo $status_class; ?>"><?php echo $status_string; ?></span></td>
 	<?php if(isset($enable_delete) && $enable_delete == 'yes' ): ?>
-	<td><?php echo form_checkbox('backups[]', urlencode($view_helper->m62Encode($backup['file_name'])), false, 'id="'.$backup['hash'].'"'); ?></td>
+	<td><?php echo form_checkbox('backups[]', urlencode($view_helper->m62Encode($backup['file_name'])), false, 'id="backup_check_'.$count.'"'); ?></td>
 	<?php endif; ?>
 	<td style="white-space: nowrap">
     	<?php if(isset($backup['storage_locations']) && is_array($backup['storage_locations']) ): ?>
@@ -104,7 +104,7 @@
 	</td>
 	<?php endif; ?>	
 </tr>
-<?php endforeach; ?>
+<?php $count++; endforeach; ?>
 </tbody>
 </table>
 </div>
