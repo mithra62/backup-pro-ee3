@@ -83,9 +83,6 @@ trait BackupProRestoreController
         $file_name = $encrypt->decode($this->platform->getPost('id'));
         $file = $this->getDbBackupMetaName($file_name);
         $backup_info = $this->services['backups']->setLocations($this->settings['storage_details'])->getBackupData($file);
-        
-        print_r($file);
-        exit;
         $restore_file_path = false;
         foreach($backup_info['storage_locations'] AS $storage_location)
         {
@@ -99,7 +96,9 @@ trait BackupProRestoreController
         if($restore_file_path && file_exists($restore_file_path))
         {
             $db_info = $this->platform->getDbCredentials();
-            if( $this->services['restore']->setDbInfo($db_info)->setBackupInfo($backup_info)->database($db_info['database'], $restore_file_path, $this->settings, $this->services['shell']) )
+            $options = $this->settings;
+            $options['file_name'] = $restore_file_path;
+            if( $this->services['restore']->setDbInfo($db_info)->setBackupInfo($backup_info)->database($db_info['database'], $options, $this->services['shell']) )
             {
                 ee()->session->set_flashdata('message_success', $this->services['lang']->__('database_restored'));
                 $this->platform->redirect(ee('CP/URL', 'addons/settings/backup_pro/db_backups'));
