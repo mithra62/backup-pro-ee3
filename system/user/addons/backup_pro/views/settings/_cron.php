@@ -30,7 +30,7 @@
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_textarea('cron_notify_emails', $form_data['cron_notify_emails'], 'cols="90" rows="6" id="cron_notify_emails"'); ?>
-		<?php echo m62_form_errors($form_errors['cron_notify_emails']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['cron_notify_emails']); ?>
 	</div>
 </fieldset>
 
@@ -41,7 +41,7 @@
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_dropdown('cron_notify_email_mailtype', array('html' => 'html', 'text' => 'text'), $form_data['cron_notify_email_mailtype'], 'id="cron_notify_email_mailtype"' ); ?>
-		<?php echo m62_form_errors($form_errors['cron_notify_email_mailtype']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['cron_notify_email_mailtype']); ?>
 	</div>
 </fieldset>	
 
@@ -52,7 +52,7 @@
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_input('cron_notify_email_subject', $form_data['cron_notify_email_subject'], 'id="cron_notify_email_subject"'); ?>
-		<?php echo m62_form_errors($form_errors['cron_notify_email_subject']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['cron_notify_email_subject']); ?>
 	</div>
 </fieldset>
 
@@ -63,6 +63,6 @@
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('cron_notify_email_message', $form_data['cron_notify_email_message'], 'cols="90" rows="6" id="cron_notify_email_message"'); ?>
-		<?php echo m62_form_errors($form_errors['cron_notify_email_message']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['cron_notify_email_message']); ?>
 	</div>
 </fieldset>

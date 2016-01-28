@@ -8,7 +8,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('ftp_hostname', $form_data['ftp_hostname'], 'id="ftp_hostname"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_hostname']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_hostname']); ?>
 	</div>
 </fieldset>
 
@@ -19,7 +19,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('ftp_username', $form_data['ftp_username'], 'id="ftp_username"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_username']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_username']); ?>
 	</div>
 </fieldset>
 
@@ -30,7 +30,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_password('ftp_password', $form_data['ftp_password'], 'id="ftp_password"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_password']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_password']); ?>
 	</div>
 </fieldset>
 
@@ -41,7 +41,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('ftp_port', $form_data['ftp_port'], 'id="ftp_port"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_port']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_port']); ?>
 	</div>
 </fieldset>
 
@@ -52,7 +52,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('ftp_store_location', $form_data['ftp_store_location'], 'id="ftp_store_location"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_store_location']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_store_location']); ?>
 	</div>
 </fieldset>
 
@@ -65,7 +65,7 @@
 		<label class="choice mr <?php echo ($form_data['ftp_passive'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('ftp_passive', '1', $form_data['ftp_passive'], 'id="ftp_passive"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['ftp_passive']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_passive']); ?>
 	</div>
 </fieldset>
 
@@ -78,7 +78,7 @@
 		<label class="choice mr <?php echo ($form_data['ftp_ssl'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('ftp_ssl', '1', $form_data['ftp_ssl'], 'id="ftp_ssl"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['ftp_ssl']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_ssl']); ?>
 	</div>
 </fieldset>
 
@@ -89,6 +89,6 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('ftp_timeout', $form_data['ftp_timeout'], 'id="ftp_timeout"'); ?>
-		<?php echo m62_form_errors($form_errors['ftp_timeout']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['ftp_timeout']); ?>
 	</div>
 </fieldset>

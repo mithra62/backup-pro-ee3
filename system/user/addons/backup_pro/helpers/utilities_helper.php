@@ -157,31 +157,3 @@ if(!function_exists('m62_third_party_path'))
 		return $path;
 	}
 }
-
-if( !function_exists('m62_form_errors'))
-{
-    /**
-     * Returns a string to use for the form field errors
-     * @return string
-     */
-    function m62_form_errors($errors)
-    {
-        if( is_string($errors) && $errors != '')
-        {
-            //$errors = array($errors);
-        }
-        
-        $return = '';
-        if( is_array($errors) && count($errors) >= 1)
-        {
-            $return = '<em>';
-            foreach($errors AS $error)
-            {
-                $return .= $error.'<br />';
-            }
-            $return .= '</em>';
-        }
-        
-        return $return;
-    }
-}

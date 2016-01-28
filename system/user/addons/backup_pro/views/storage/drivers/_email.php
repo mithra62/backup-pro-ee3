@@ -6,7 +6,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_textarea('email_storage_emails', $form_data['email_storage_emails'], 'id="email_storage_emails"') ?>
-		<?php echo m62_form_errors($form_errors['email_storage_emails']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['email_storage_emails']); ?>
 	</div>
 </fieldset>
 
@@ -17,6 +17,6 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('email_storage_attach_threshold', $form_data['email_storage_attach_threshold'], 'id="email_storage_attach_threshold"'); ?>
-		<?php echo m62_form_errors($form_errors['email_storage_attach_threshold']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['email_storage_attach_threshold']); ?>
 	</div>
 </fieldset>

@@ -29,7 +29,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('db_verification_db_name', $form_data['db_verification_db_name'], 'id="db_verification_db_name"'); ?>
-		<?php echo m62_form_errors($form_errors['db_verification_db_name']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_verification_db_name']); ?>
 	</div>
 </fieldset>
 
@@ -40,7 +40,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('total_verifications_per_execution', $form_data['total_verifications_per_execution'], 'id="total_verifications_per_execution"'); ?>
-		<?php echo m62_form_errors($form_errors['total_verifications_per_execution']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['total_verifications_per_execution']); ?>
 	</div>
 </fieldset>
 
@@ -53,7 +53,7 @@ if(count($ia_cron_commands) >= 1)
 		<label class="choice mr <?php echo ($form_data['check_backup_state_cp_login'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('check_backup_state_cp_login', '1', $form_data['check_backup_state_cp_login'], 'id="check_backup_state_cp_login"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['check_backup_state_cp_login']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['check_backup_state_cp_login']); ?>
 	</div>
 </fieldset>
 
@@ -66,7 +66,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('backup_missed_schedule_notify_email_interval', $form_data['backup_missed_schedule_notify_email_interval'], 'id="backup_missed_schedule_notify_email_interval"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_missed_schedule_notify_email_interval']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_email_interval']); ?>
 	</div>
 </fieldset>
 
@@ -77,7 +77,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_textarea('backup_missed_schedule_notify_emails', $form_data['backup_missed_schedule_notify_emails'], 'cols="90" rows="6" id="backup_missed_schedule_notify_emails"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_missed_schedule_notify_emails']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_emails']); ?>
 	</div>
 </fieldset>	
 
@@ -88,7 +88,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_dropdown('backup_missed_schedule_notify_email_mailtype', array('html' => 'html', 'text' => 'text'), $form_data['backup_missed_schedule_notify_email_mailtype'], 'id="backup_missed_schedule_notify_email_mailtype"' ); ?>
-		<?php echo m62_form_errors($form_errors['backup_missed_schedule_notify_email_mailtype']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_email_mailtype']); ?>
 	</div>
 </fieldset>	
 
@@ -99,7 +99,7 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_input('backup_missed_schedule_notify_email_subject', $form_data['backup_missed_schedule_notify_email_subject'], 'id="backup_missed_schedule_notify_email_subject"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_missed_schedule_notify_email_subject']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_email_subject']); ?>
 	</div>
 </fieldset>
 
@@ -110,6 +110,6 @@ if(count($ia_cron_commands) >= 1)
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('backup_missed_schedule_notify_email_message', $form_data['backup_missed_schedule_notify_email_message'], 'cols="90" rows="6" id="backup_missed_schedule_notify_email_message"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_missed_schedule_notify_email_message']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_email_message']); ?>
 	</div>
 </fieldset>

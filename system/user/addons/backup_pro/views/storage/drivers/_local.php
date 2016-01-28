@@ -5,6 +5,6 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('backup_store_location', $form_data['backup_store_location'], 'id="backup_store_location"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_store_location']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_store_location']); ?>
 	</div>
 </fieldset>

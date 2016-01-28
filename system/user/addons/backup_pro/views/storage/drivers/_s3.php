@@ -7,7 +7,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('s3_access_key', $form_data['s3_access_key'], 'id="s3_access_key"'); ?>
-		<?php echo m62_form_errors($form_errors['s3_access_key']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_access_key']); ?>
 	</div>
 </fieldset>
 
@@ -18,7 +18,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_password('s3_secret_key', $form_data['s3_secret_key'], 'id="s3_secret_key"'); ?>
-		<?php echo m62_form_errors($form_errors['s3_secret_key']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_secret_key']); ?>
 	</div>
 </fieldset>
 
@@ -29,7 +29,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('s3_bucket', $form_data['s3_bucket'], 'id="s3_bucket"'); ?>
-		<?php echo m62_form_errors($form_errors['s3_bucket']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_bucket']); ?>
 	</div>
 </fieldset>
 
@@ -40,7 +40,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('s3_optional_prefix', $form_data['s3_optional_prefix'], 'id="s3_optional_prefix"'); ?>
-		<?php echo m62_form_errors($form_errors['s3_optional_prefix']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_optional_prefix']); ?>
 	</div>
 </fieldset>
 
@@ -53,6 +53,6 @@
 		<label class="choice mr <?php echo ($form_data['s3_reduced_redundancy'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('s3_reduced_redundancy', '1', $form_data['s3_reduced_redundancy'], 'id="s3_reduced_redundancy"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['s3_reduced_redundancy']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_reduced_redundancy']); ?>
 	</div>
 </fieldset>

@@ -7,6 +7,6 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('license_number', $form_data['license_number'], 'id="license_number"'); ?>
-		<?php echo m62_form_errors($form_errors['license_number']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['license_number']); ?>
 	</div>
 </fieldset>

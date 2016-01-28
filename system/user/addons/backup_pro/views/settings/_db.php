@@ -13,7 +13,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('max_db_backups', $form_data['max_db_backups'], 'id="max_db_backups"'); ?>
-		<?php echo m62_form_errors($form_errors['max_db_backups']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['max_db_backups']); ?>
 	</div>
 </fieldset>
 
@@ -24,7 +24,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('db_backup_alert_threshold', $form_data['db_backup_alert_threshold'], 'id="db_backup_alert_threshold"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_alert_threshold']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_alert_threshold']); ?>
 	</div>
 </fieldset>
 
@@ -35,7 +35,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last">
 		<?php echo form_dropdown('db_backup_method', $db_backup_methods, $form_data['db_backup_method'], 'id="db_backup_method"' ); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_method']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_method']); ?>
 	</div>
 </fieldset>	
 
@@ -46,7 +46,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_input('mysqldump_command', $form_data['mysqldump_command'], 'id="mysqldump_command"'); ?>
-		<?php echo m62_form_errors($form_errors['mysqldump_command']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['mysqldump_command']); ?>
 	</div>
 </fieldset>	
 
@@ -57,7 +57,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('php_backup_method_select_chunk_limit', $form_data['php_backup_method_select_chunk_limit'], 'id="php_backup_method_select_chunk_limit"'); ?>
-		<?php echo m62_form_errors($form_errors['php_backup_method_select_chunk_limit']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['php_backup_method_select_chunk_limit']); ?>
 	</div>
 </fieldset>
 
@@ -68,7 +68,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last">
 		<?php echo form_dropdown('db_restore_method', $db_restore_methods, $form_data['db_restore_method'], 'id="db_restore_method"' ); ?>
-		<?php echo m62_form_errors($form_errors['db_restore_method']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_restore_method']); ?>
 	</div>
 </fieldset>	
 
@@ -79,7 +79,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_input('mysqlcli_command', $form_data['mysqlcli_command'], 'id="mysqlcli_command"'); ?>
-		<?php echo m62_form_errors($form_errors['mysqlcli_command']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['mysqlcli_command']); ?>
 	</div>
 </fieldset>	
 
@@ -92,7 +92,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_multiselect('db_backup_ignore_tables[]', $db_tables, $form_data['db_backup_ignore_tables'], 'id="db_backup_ignore_tables" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_tables').'"') ?>
-		<?php echo m62_form_errors($form_errors['db_backup_ignore_tables']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_ignore_tables']); ?>
 	</div>
 </fieldset>	
 
@@ -104,7 +104,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_multiselect('db_backup_ignore_table_data[]', $db_tables, $form_data['db_backup_ignore_table_data'], 'id="db_backup_ignore_table_data" data-placeholder="'.$view_helper->m62Lang('db_backup_ignore_table_data').'"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_ignore_table_data']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_ignore_table_data']); ?>
 	</div>
 </fieldset>	
 
@@ -117,7 +117,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="" >
 		<?php echo form_textarea('db_backup_archive_pre_sql', $form_data['db_backup_archive_pre_sql'], 'cols="90" rows="6" id="db_backup_archive_pre_sql"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_archive_pre_sql']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_archive_pre_sql']); ?>
 	</div>
 </fieldset>	
 
@@ -128,7 +128,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_archive_post_sql', $form_data['db_backup_archive_post_sql'], 'cols="90" rows="6" id="db_backup_archive_post_sql"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_archive_post_sql']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_archive_post_sql']); ?>
 	</div>
 </fieldset>	
 
@@ -141,7 +141,7 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_execute_pre_sql', $form_data['db_backup_execute_pre_sql'], 'cols="90" rows="6" id="db_backup_execute_pre_sql"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_execute_pre_sql']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_execute_pre_sql']); ?>
 	</div>
 </fieldset>
 
@@ -152,6 +152,6 @@ $db_restore_methods = array('php' => 'PHP', 'mysql' => 'MySQL');
 	</div>
 	<div class="setting-field col w-8 last" style="">
 		<?php echo form_textarea('db_backup_execute_post_sql', $form_data['db_backup_execute_post_sql'], 'cols="90" rows="6" id="db_backup_execute_post_sql"'); ?>
-		<?php echo m62_form_errors($form_errors['db_backup_execute_post_sql']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['db_backup_execute_post_sql']); ?>
 	</div>
 </fieldset>

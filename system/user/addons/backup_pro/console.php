@@ -8,13 +8,14 @@
  * @filesource 	./console.php
  */
 
-if( php_sapi_name() !== 'cli' )
-{
+if( php_sapi_name() !== 'cli' ){
     exit;
 }
 
-if( !file_exists( './cli.config.php') )
-{
+$old_wd = getcwd();
+chdir(__DIR__);
+
+if( !file_exists( './cli.config.php') ){
     echo "Config file not set...";
     exit;
 }
@@ -32,3 +33,4 @@ $config = include './cli.config.php';
 
 $controller = new Console($config);
 $controller->run();
+chdir($old_wd);

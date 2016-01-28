@@ -5,7 +5,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_password('dropbox_access_token', $form_data['dropbox_access_token'], 'id="dropbox_access_token"'); ?>
-		<?php echo m62_form_errors($form_errors['dropbox_access_token']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['dropbox_access_token']); ?>
 	</div>
 </fieldset>
 
@@ -16,7 +16,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_password('dropbox_app_secret', $form_data['dropbox_app_secret'], 'id="dropbox_app_secret"'); ?>
-		<?php echo m62_form_errors($form_errors['dropbox_app_secret']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['dropbox_app_secret']); ?>
 	</div>
 </fieldset>
 
@@ -27,6 +27,6 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('dropbox_prefix', $form_data['dropbox_prefix'], 'id="dropbox_prefix"'); ?>
-		<?php echo m62_form_errors($form_errors['dropbox_prefix']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['dropbox_prefix']); ?>
 	</div>
 </fieldset>

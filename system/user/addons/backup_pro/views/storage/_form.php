@@ -10,7 +10,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('storage_location_name', $form_data['storage_location_name'], 'id="storage_location_name"'); ?>
-		<?php echo m62_form_errors($form_errors['storage_location_name']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['storage_location_name']); ?>
 	</div>
 </fieldset>
 
@@ -25,7 +25,7 @@
 		<label class="choice mr <?php echo ($form_data['storage_location_status'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('storage_location_status', '1', $form_data['storage_location_status'], 'id="storage_location_status"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['storage_location_status']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['storage_location_status']); ?>
 	</div>
 </fieldset>
 
@@ -38,7 +38,7 @@
 		<label class="choice mr <?php echo ($form_data['storage_location_file_use'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('storage_location_file_use', '1', $form_data['storage_location_file_use'], 'id="storage_location_file_use"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['storage_location_file_use']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['storage_location_file_use']); ?>
 	</div>
 </fieldset>
 
@@ -51,7 +51,7 @@
 		<label class="choice mr <?php echo ($form_data['storage_location_db_use'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('storage_location_db_use', '1', $form_data['storage_location_db_use'], 'id="storage_location_db_use"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['storage_location_db_use']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['storage_location_db_use']); ?>
 	</div>
 </fieldset>
 
@@ -64,6 +64,6 @@
 		<label class="choice mr <?php echo ($form_data['storage_location_include_prune'] == '1' ? 'chosen' : ''); ?>">
 		  <?php echo form_checkbox('storage_location_include_prune', '1', $form_data['storage_location_include_prune'], 'id="storage_location_include_prune"'); ?>
 		</label>
-		<?php echo m62_form_errors($form_errors['storage_location_include_prune']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['storage_location_include_prune']); ?>
 	</div>
 </fieldset>

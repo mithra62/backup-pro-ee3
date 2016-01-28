@@ -8,7 +8,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('max_file_backups', $form_data['max_file_backups'], 'id="max_file_backups"'); ?>
-		<?php echo m62_form_errors($form_errors['max_file_backups']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['max_file_backups']); ?>
 	</div>
 </fieldset>
 
@@ -19,7 +19,7 @@
 	</div>
 	<div class="setting-field col w-8">
 		<?php echo form_input('file_backup_alert_threshold', $form_data['file_backup_alert_threshold'], 'id="file_backup_alert_threshold"'); ?>
-		<?php echo m62_form_errors($form_errors['file_backup_alert_threshold']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['file_backup_alert_threshold']); ?>
 	</div>
 </fieldset>
 
@@ -30,7 +30,7 @@
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_textarea('backup_file_location', $form_data['backup_file_location'], 'cols="90" rows="6" id="backup_file_location"'); ?>
-		<?php echo m62_form_errors($form_errors['backup_file_location']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['backup_file_location']); ?>
 	</div>
 </fieldset>
 
@@ -41,7 +41,7 @@
 	</div>
 	<div class="setting-field col w-8 ">
 		<?php echo form_textarea('exclude_paths', $form_data['exclude_paths'], 'cols="90" rows="6" id="exclude_paths"'); ?>
-		<?php echo m62_form_errors($form_errors['exclude_paths']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['exclude_paths']); ?>
 	</div>
 </fieldset>
 
@@ -52,6 +52,6 @@
 	</div>
 	<div class="setting-field col w-8 ">
 		<label class="choice mr <?php echo ($form_data['regex_file_exclude'] == '1' ? 'chosen' : ''); ?>"><?php echo form_checkbox('regex_file_exclude', '1', $form_data['regex_file_exclude'], 'id="regex_file_exclude"'); ?></label>
-		<?php echo m62_form_errors($form_errors['regex_file_exclude']); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['regex_file_exclude']); ?>
 	</div>
 </fieldset>
