@@ -87,7 +87,7 @@ if(count($ia_cron_commands) >= 1)
 		<em style=""><?php echo $view_helper->m62Lang('backup_missed_schedule_notify_email_mailtype_instructions'); ?></em>
 	</div>
 	<div class="setting-field col w-8 last" style="">
-		<?php echo form_dropdown('backup_missed_schedule_notify_email_mailtype', array('html' => 'html', 'text' => 'text'), $form_data['backup_missed_schedule_notify_email_mailtype'], 'id="backup_missed_schedule_notify_email_mailtype"' ); ?>
+		<?php echo form_dropdown('backup_missed_schedule_notify_email_mailtype', $view_helper->m62Options('email_type'), $form_data['backup_missed_schedule_notify_email_mailtype'], 'id="backup_missed_schedule_notify_email_mailtype"' ); ?>
 		<?php echo $view_helper->m62FormErrors($form_errors['backup_missed_schedule_notify_email_mailtype']); ?>
 	</div>
 </fieldset>	
