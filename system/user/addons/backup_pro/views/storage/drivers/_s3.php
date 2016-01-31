@@ -33,6 +33,17 @@
 	</div>
 </fieldset>
 
+<fieldset class="col-group required <?php echo (is_array($form_errors['s3_region']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="s3_region"><?php echo $view_helper->m62Lang('s3_region'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('s3_region_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_dropdown('s3_region', $view_helper->m62Options('s3_regions', false), $form_data['s3_region'], 'id="s3_region"'); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['s3_region']); ?>
+	</div>
+</fieldset>
+
 <fieldset class="col-group <?php echo (is_array($form_errors['s3_optional_prefix']) ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">
 		<h3><label for="s3_optional_prefix"><?php echo $view_helper->m62Lang('s3_optional_prefix'); ?></label></h3>
