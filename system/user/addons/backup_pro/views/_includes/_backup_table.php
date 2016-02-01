@@ -12,7 +12,7 @@
 		<th></th>
 	
 		<?php if(isset($enable_delete) && $enable_delete == 'yes' ): ?>
-		<th></th>
+		<th><?php echo form_checkbox('bp_toggle_all', 1, false, 'id="fdsafdsa" class="fdsafdsafdsa"'); ?></th>
 		<?php endif; ?>
 		<th></th>
 		<th></th>
@@ -50,7 +50,7 @@
 <tr class="odd">
 	<td class="  "><span class="<?php echo $status_class; ?>"><?php echo $status_string; ?></span></td>
 	<?php if(isset($enable_delete) && $enable_delete == 'yes' ): ?>
-	<td><?php echo form_checkbox('backups[]', urlencode($view_helper->m62Encode($backup['file_name'])), false, 'id="backup_check_'.$count.'"'); ?></td>
+	<td><?php echo form_checkbox('backups[]', urlencode($view_helper->m62Encode($backup['file_name'])), false, 'id="backup_check_'.$count.'" class="bp_toggle_check"'); ?></td>
 	<?php endif; ?>
 	<td style="white-space: nowrap">
     	<?php if(isset($backup['storage_locations']) && is_array($backup['storage_locations']) ): ?>

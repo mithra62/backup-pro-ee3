@@ -31,6 +31,17 @@
 	</div>
 </fieldset>
 
+<fieldset class="col-group <?php echo (is_array($form_errors['rcf_optional_prefix']) ? 'invalid' : ''); ?>">
+	<div class="setting-txt col w-8">
+		<h3><label for="rcf_optional_prefix"><?php echo $view_helper->m62Lang('rcf_optional_prefix'); ?></label></h3>
+		<em><?php echo $view_helper->m62Lang('rcf_optional_prefix_instructions'); ?></em>
+	</div>
+	<div class="setting-field col w-8">
+		<?php echo form_input('rcf_optional_prefix', $form_data['rcf_optional_prefix'], 'id="rcf_optional_prefix"'); ?>
+		<?php echo $view_helper->m62FormErrors($form_errors['rcf_optional_prefix']); ?>
+	</div>
+</fieldset>
+
 <?php $cf_location_options = array('us' => 'US', 'uk' => 'UK'); ?>
 <fieldset class="col-group required <?php echo (is_array($form_errors['rcf_location']) ? 'invalid' : ''); ?>">
 	<div class="setting-txt col w-8">

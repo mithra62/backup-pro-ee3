@@ -146,7 +146,7 @@ trait BackupProStorageController
         $variables['available_storage_engines'] = $this->services['backup']->getStorage()->getAvailableStorageOptions();
         $variables['storage_engine'] = $variables['available_storage_engines'][$storage_details['storage_location_driver']];
         $variables['_form_template'] = 'storage/drivers/_'.$storage_details['storage_location_driver'];
-    
+        
         if( ee()->input->server('REQUEST_METHOD') == 'POST' )
         {
             $data = array();
