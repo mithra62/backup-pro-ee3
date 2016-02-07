@@ -122,7 +122,6 @@ class Backup_pro_mcp extends Ee3
 		ee()->cp->add_to_foot('<link type="text/css" rel="stylesheet" href="'.m62_theme_url().'backup_pro/css/chosen.css" />');
 		
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/chosen.jquery.js"></script>');
-		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/jquery.ddslick.min.js"></script>');
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/global.js"></script>');
 		ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/dashboard.js"></script>');
 		//ee()->cp->add_to_foot('<script type="text/javascript" src="'.m62_theme_url().'backup_pro/js/backup.js"></script>');
