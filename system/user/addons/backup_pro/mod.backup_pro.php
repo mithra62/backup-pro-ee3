@@ -12,6 +12,7 @@
 require_once PATH_THIRD.'backup_pro/vendor/autoload.php';
 
 use mithra62\BackupPro\Platforms\Controllers\Ee3;
+use mithra62\BackupPro\Rest;
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include PATH_THIRD.'backup_pro/config.php';
@@ -32,4 +33,10 @@ class Backup_pro extends Ee3
     use BackupProCronController;
     
 	public $return_data	= '';
+	
+	public function api()
+	{
+        $_SERVER['REQUEST_URI'] = '/backup_pro/api'.$_GET['bp_method'];
+	    $this->services['rest']->getServer()->run();
+	}
 }
