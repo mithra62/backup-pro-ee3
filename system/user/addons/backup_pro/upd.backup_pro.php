@@ -85,6 +85,9 @@ class Backup_pro_upd implements BackupPro
 		$sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method) VALUES ('".$this->name."', 'integrity')";
 		ee()->db->query($sql);
 
+		$sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method) VALUES ('".$this->name."', 'api')";
+		ee()->db->query($sql);
+
 		$this->add_settings_table();
 		$this->activate_extension();
 		
