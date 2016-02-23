@@ -36,7 +36,7 @@ class Backup_pro extends Ee3
 	
 	public function api()
 	{
-        $_SERVER['REQUEST_URI'] = '/backup_pro/api'.$_GET['bp_method'];
+        $_SERVER['REQUEST_URI'] = '/backup_pro/api'.$this->platform->getPost('bp_method');
 	    $this->services['rest']->setPlatform($this->platform)->getServer()->run();
 	}
 }
