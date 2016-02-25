@@ -85,7 +85,7 @@ class Backup_pro_upd implements BackupPro
 		$sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method) VALUES ('".$this->name."', 'integrity')";
 		ee()->db->query($sql);
 
-		$sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method) VALUES ('".$this->name."', 'api')";
+		$sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method, csrf_exempt) VALUES ('".$this->name."', 'api', '1')";
 		ee()->db->query($sql);
 
 		$this->add_settings_table();
@@ -211,6 +211,12 @@ class Backup_pro_upd implements BackupPro
 		if ($current == $this->version)
 		{
 			return false;
+		}
+		
+		if (version_compare($current, '3.3', '<'))
+		{
+		    $sql = "INSERT INTO ".ee()->db->dbprefix."actions (class, method, csrf_exempt) VALUES ('".$this->name."', 'api', '1')";
+		    ee()->db->query($sql);
 		}
 
 		return true;
