@@ -53,6 +53,7 @@ class Backup_pro_lib
 			'cron_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/cron'),
 			'storage_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/view_storage'),
 			'integrity_agent_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/integrity_agent'),
+			'api_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/api'),
 			'license_bp_settings_menu'		=> ee('CP/URL', 'addons/settings/backup_pro/settings/license'),
 		);
 	
@@ -122,6 +123,15 @@ class Backup_pro_lib
 		return array(
 			'verify_backup_stability' => array('url' => $url, 'cmd' => '0 * * * * * curl "'.$url.'"')
 		);
+	}
+	
+	public function get_api_route_entry(array $settings)
+	{
+	    ee()->load->dbforge();
+	    ee()->db->select('action_id');
+	    $query = ee()->db->get_where('actions', array('class' => 'Backup_pro', 'method' => 'api'));
+	    $action_id = $query->row('action_id');
+	    return ee()->config->config['site_url'].'?ACT='.$action_id.AMP.'bp_method=';
 	}
 	
 	/**

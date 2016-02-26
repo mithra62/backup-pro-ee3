@@ -69,6 +69,7 @@ trait BackupProSettingsController
         $variables['threshold_options'] = $this->services['settings']->getAutoPruneThresholdOptions();
         $variables['available_db_backup_engines'] = $this->services['backup']->getDataBase()->getAvailableEnginesOptions();
         $variables['menu_data'] = ee()->backup_pro->get_settings_view_menu();
+        $variables['rest_api_route_entry'] = $this->platform->getRestApiRouteEntry($this->settings);
         return array(
             'body' => ee()->load->view('settings', $variables, true),
             'heading' => $this->services['lang']->__($variables['section'].'_bp_settings_menu'),

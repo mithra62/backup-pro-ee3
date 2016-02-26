@@ -25,6 +25,7 @@ switch($section)
 	case 'files':
 	case 'license':
 	case 'integrity_agent':
+	case 'api':
 		$this->load->view('settings/_'.$section, array('settings' => $settings));
 		break;
 
