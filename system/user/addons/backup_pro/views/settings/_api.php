@@ -5,7 +5,7 @@
 
 <fieldset class="col-group">
 	<div class="setting-txt col w-8">
-		<h3><label for="relative_time"><?php echo $view_helper->m62Lang('rest_api_route_entry'); ?></label></h3>
+		<h3><label for="rest_api_route_entry"><?php echo $view_helper->m62Lang('rest_api_route_entry'); ?></label></h3>
 	</div>
 	<div class="setting-field col w-8 "><a href="<?php echo $rest_api_route_entry; ?>" target="_blank"><?php echo $rest_api_route_entry; ?></a>
 	</div>
