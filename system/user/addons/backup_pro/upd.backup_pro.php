@@ -68,6 +68,22 @@ class Backup_pro_upd implements BackupPro
      */
 	public function install() 
 	{
+	    if (version_compare(phpversion(), '5.4.0', '<')) {
+	        throw new \Exception('You must be run PHP 5.4 or greater to use this package.');
+	    }
+	    
+	    if (!function_exists('mysqli_report') && !class_exists('PDO')) {
+	        throw new \Exception('Backup Pro requires either the mysqli or PDO extension for database use.');
+	    }
+	    
+	    if (!function_exists('mb_check_encoding')) {
+	        throw new \Exception('Backup Pro requires the Multi Byte extension to ensure proper string encoding.');
+	    }
+	    
+	    if (!function_exists('curl_init')) {
+	        throw new \Exception('Backup Pro requires the Curl extension to transfer backups to remote locations.');
+	    }
+	    
 		ee()->load->dbforge();
 	
 		$data = array(
