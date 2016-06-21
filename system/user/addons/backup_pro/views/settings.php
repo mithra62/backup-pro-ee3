@@ -14,7 +14,6 @@ if( $form_has_errors ):
 <?php endif; ?>
 
 
-<?//=ee('CP/Alert')->get('box')?>
 <input type="hidden" value="yes" name="go_settings" />
 <input type="hidden" value="<?php echo $section; ?>" name="section" />
 <?php 
