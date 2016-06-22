@@ -24,7 +24,7 @@
 		<th class=""><?php echo $view_helper->m62Lang('time'); ?></th>
 		<th><?php echo $view_helper->m62Lang('memory'); ?></th>
 		<?php if(isset($enable_actions) && $enable_actions == 'yes' ): ?>
-		<th class=""></th>
+		<th class="">  </th>
 		<?php endif; ?>
 	</tr>
 </thead>
@@ -59,7 +59,7 @@
     		<?php endforeach; ?>
     	<?php endif; ?>
 	</td>
-	<td style="width:55%">
+	<td >
 		<?php if(isset($enable_editable_note) && $enable_editable_note == 'yes' ): ?>
 		<div class="bp_editable" rel="<?php echo $view_helper->m62Escape($backup['hash']); ?>" id="note_div_<?php echo $view_helper->m62Escape($backup['hash']); ?>"><?php if($backup['note'] == ''): ?><?php echo $view_helper->m62Lang('click_to_add_note'); ?><?php else: ?><?php echo $view_helper->m62Escape($backup['note']); ?> <?php endif; ?></div>
 		<input name="note_<?php echo $view_helper->m62Escape($backup['hash']); ?>" value="<?php echo $backup['note']; ?>" id="note_<?php echo $view_helper->m62Escape($backup['hash']); ?>" data-backup-type="<?php echo $view_helper->m62Escape($backup['backup_type']); ?>" class="note_container" rel="<?php echo urlencode($view_helper->m62Encode($backup['file_name'])); ?>" style="display:none; width:100%" type="text">
@@ -78,8 +78,8 @@
 	<td style="white-space: nowrap"><!-- <?php echo $view_helper->m62Escape($backup['time_taken']); ?> --><?php echo $view_helper->m62TimeFormat($backup['time_taken']); ?></td>
 	<td style="white-space: nowrap"><!-- <?php echo $view_helper->m62Escape($backup['max_memory']); ?> --><?php echo $view_helper->m62FileSize($backup['max_memory']); ?></td>
 		<?php if(isset($enable_actions) && $enable_actions == 'yes' ): ?>
-	<td align="right" style="width:40px; white-space: nowrap">
-		<div style="float:right">
+	<td>
+		<div class="toolbar-wrap">
 		<ul class="toolbar">
             <?php if( $backup['backup_type'] == 'database'): ?> 
             
