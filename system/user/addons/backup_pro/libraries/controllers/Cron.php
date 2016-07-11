@@ -8,7 +8,7 @@
  * @filesource 	./mithra62/BackupPro/Controllers/Eecms/Cron.php
  */
 
-use mithra62\Traits\Log;
+use JaegerApp\Traits\Log;
 use mithra62\BackupPro\Exceptions\BackupException;
 
 /**

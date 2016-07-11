@@ -8,7 +8,7 @@
  * @filesource 	./mithra62/BackupPro/Controllers/Eecms/Backup.php
  */
 
-use mithra62\Traits\Log;
+use JaegerApp\Traits\Log;
 
 /**
  * Backup Pro - Eecms Backup Controller
