@@ -7,7 +7,7 @@
 	<property name="main_files" value="system" />
 	<property name="cms_root_path" value="${build_container_dir}/system" />
 	<property name="vendor_path" value="${cms_root_path}/user/addons/backup_pro/vendor" />
-	<property name="backup_pro_logic_base" value="${cms_root_path}/user/addons/backup_pro/mithra62/BackupPro" />
+	<property name="backup_pro_logic_base" value="${cms_root_path}/user/addons/backup_pro/mithra62" />
 	<property name="jaeger_base" value="${cms_root_path}/user/addons/backup_pro/mithra62" />
 		
 	<property name="platform_theme_base" value="${build_container_dir}/themes/user" />		
