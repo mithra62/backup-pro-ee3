@@ -53,6 +53,7 @@ trait BackupProCronController
                     break;
     
                 case 'file':
+                case 'files':
                     $backup_paths['files'] = $backup->files($this->settings, $this->services['files'], $this->services['regex']);
                     break;
             }

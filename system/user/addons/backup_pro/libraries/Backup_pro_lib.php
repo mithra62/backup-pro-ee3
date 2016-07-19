@@ -96,7 +96,7 @@ class Backup_pro_lib
 		$action_id = $this->get_cron_action();
 		$url = ee()->config->config['site_url'].'?backup_pro='.$settings['cron_query_key'].AMP.'ACT='.$action_id;
 		return array(
-			 'file_backup' => array('url' => $url.AMP.'type=file', 'cmd' => 'curl "'.$url.AMP.'type=files"'),
+			 'file_backup' => array('url' => $url.AMP.'type=file', 'cmd' => 'curl "'.$url.AMP.'type=file"'),
 			 'db_backup' => array('url' => $url.AMP.'type=db', 'cmd' => 'curl "'.$url.AMP.'type=db"')
 		);
 	}
