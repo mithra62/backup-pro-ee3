@@ -12,8 +12,8 @@
 		{
 			$this->table->add_row(
 				array('data' => $view_helper->m62Lang($key), 'width' => '50%'), 
-				'<div class="select_all">'.$value['cmd'].'</div>',
-				'<a href="'.$value['url'].'" class="test_cron" rel="'.$key.'"><img src="'.$theme_folder_url.'backup_pro/images/test.png" /></a> <img src="'.$theme_folder_url.'backup_pro/images/indicator.gif" id="animated_'.$key.'" style="display:none" />');
+				'<div class="select_all" id="cron_cmd_'.$key.'">'.$value['cmd'].'</div>',
+				'<a href="'.$value['url'].'" class="test_cron" rel="'.$key.'" id="cron_url_'.$key.'"><img src="'.$theme_folder_url.'backup_pro/images/test.png" /></a> <img src="'.$theme_folder_url.'backup_pro/images/indicator.gif" id="animated_'.$key.'" style="display:none" />');
 		}
 		echo $this->table->generate();
 		$this->table->clear();	
