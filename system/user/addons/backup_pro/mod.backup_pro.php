@@ -36,8 +36,25 @@ class Backup_pro extends Ee3
 	
 	public function api()
 	{
-        $_SERVER['REQUEST_URI'] = '/backup_pro/api'.$this->platform->getPost('bp_method');
+        $_SERVER['REQUEST_URI'] = '/backup_pro/api'.$this->platform->getPost('api_method');
 	    $this->services['rest']->setPlatform($this->platform)->getServer()->run();
+	    exit;
+	}
+	
+	public function test_api()
+	{
+
+	    $creds = array(
+	        'api_key' => '3fd6f390-827e-c64e-bdba-ab5f34302725',
+	        'api_secret' => '2283c279-8453-d0d3-b849-a18df75edf41',
+	        //'site_url' => 'http://eric.scga.org/?ACT=90&api_method=',
+	        'site_url' => 'http://eric.ee3.mithra62.com/?ACT=52&api_method=',
+	    );
+	     
+	    $client = new \mithra62\BpApiClient\Client($creds);
+	    $backups = $client->get('/backups');
+	    
+	    print_R($backups);
 	    exit;
 	}
 }

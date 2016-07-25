@@ -131,7 +131,7 @@ class Backup_pro_lib
 	    ee()->db->select('action_id');
 	    $query = ee()->db->get_where('actions', array('class' => 'Backup_pro', 'method' => 'api'));
 	    $action_id = $query->row('action_id');
-	    return ee()->config->config['site_url'].'?ACT='.$action_id.AMP.'bp_method=';
+	    return ee()->config->config['site_url'].'?ACT='.$action_id.AMP.'api_method=';
 	}
 	
 	/**
