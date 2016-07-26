@@ -43,6 +43,18 @@ class Backup_pro extends Ee3
 	
 	public function test_api()
 	{
-
+	    $creds = array(
+	        'api_key' => '3fd6f390-827e-c64e-bdba-ab5f34302725',
+	        'api_secret' => '2283c279-8453-d0d3-b849-a18df75edf41',
+	        //'site_url' => 'http://eric.scga.org/?ACT=90&api_method=',
+	        'site_url' => 'http://eric.ee3.mithra62.com/?ACT=52&api_method=',
+	    );
+	    
+	    $client = new \mithra62\BpApiClient\Client($creds);
+	    $payload = array('type' => 'files');
+	    $backups = $client->post('/backups', $payload);
+	     
+	    print_R($backups);
+	    exit;
 	}
 }
